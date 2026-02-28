@@ -1,0 +1,37 @@
+<svg width="1200" height="340" viewBox="0 0 1200 340" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">AIStill logo</title>
+  <desc id="desc">AIStill wordmark with abstract clinical intelligence emblem.</desc>
+  <defs>
+    <linearGradient id="brand" x1="80" y1="40" x2="260" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E3A8A"/>
+      <stop offset="1" stop-color="#38BDF8"/>
+    </linearGradient>
+    <linearGradient id="word" x1="340" y1="70" x2="860" y2="250" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E3A8A"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+  </defs>
+
+  <g stroke="url(#brand)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M170 60V250"/>
+    <path d="M130 225L170 272L210 225"/>
+    <path d="M120 95H220"/>
+    <path d="M110 132H230"/>
+    <path d="M102 170H238"/>
+    <path d="M95 205H245"/>
+    <path d="M55 92L88 123"/>
+    <path d="M285 92L252 123"/>
+    <path d="M43 49L88 93"/>
+    <path d="M297 49L252 93"/>
+    <path d="M170 36V60"/>
+    <circle cx="42" cy="48" r="16" fill="#F8FAFC"/>
+    <circle cx="170" cy="24" r="16" fill="#F8FAFC"/>
+    <circle cx="298" cy="48" r="16" fill="#F8FAFC"/>
+    <path d="M72 170L28 170V238L85 281"/>
+    <path d="M268 170L312 170V238L255 281"/>
+    <path d="M86 183L126 214"/>
+    <path d="M254 183L214 214"/>
+  </g>
+
+  <text x="360" y="228" fill="url(#word)" font-size="150" font-family="Inter, Segoe UI, Arial, sans-serif" font-weight="700" letter-spacing="-2">AIStill</text>
+</svg>
