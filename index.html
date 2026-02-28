@@ -50,9 +50,14 @@
     }
 
     .brand {
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .brand img {
+      display: block;
+      width: min(290px, 62vw);
+      height: auto;
     }
 
     .badge {
@@ -219,6 +224,7 @@
       .hero-panel,
       .hero-side { padding: 24px; }
       .topbar { margin-bottom: 26px; }
+      .brand img { width: min(240px, 70vw); }
     }
   </style>
 </head>
@@ -226,7 +232,9 @@
   <header>
     <div class="wrap">
       <div class="topbar">
-        <div class="brand">AIStill</div>
+        <div class="brand">
+          <img src="assets/aistill-logo.svg" alt="AIStill" />
+        </div>
         <span class="badge">AI Infrastructure • Healthcare & Education</span>
       </div>
 
