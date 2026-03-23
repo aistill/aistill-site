@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AIStill Nutrition — Evidence + AI Search</title>
+  <meta name="description" content="AIStill Nutrition will provide an AI-powered nutrition evidence search experience with curated resources and supplement pathways." />
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --text: #0f172a;
+      --muted: #475569;
+      --surface: #ffffff;
+      --surface-soft: #ecfeff;
+      --border: #dbeafe;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --leaf: #166534;
+      --leaf-soft: #dcfce7;
+      --radius: 18px;
+      --shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.65;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 85% -5%, rgba(37, 99, 235, 0.2), transparent 31%),
+        radial-gradient(circle at 0% 100%, rgba(22, 163, 74, 0.16), transparent 33%),
+        var(--bg);
+    }
+
+    .wrap {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header { padding: 30px 0 38px; }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .crumb,
+    .quick-link {
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      padding: 8px 12px;
+    }
+
+    .crumb {
+      color: #1e3a8a;
+      border: 1px solid rgba(37, 99, 235, 0.35);
+      background: rgba(37, 99, 235, 0.08);
+    }
+
+    .quick-link {
+      color: #065f46;
+      border: 1px solid rgba(22, 101, 52, 0.35);
+      background: rgba(22, 101, 52, 0.1);
+    }
+
+    .hero {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(145deg, rgba(236, 254, 255, 0.75), rgba(220, 252, 231, 0.65)),
+        var(--surface);
+      padding: 30px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(1.9rem, 4.8vw, 3rem);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      margin: 0;
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 62ch;
+    }
+
+    .hero-actions {
+      margin-top: 18px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-radius: 10px;
+      padding: 10px 15px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: 160ms ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+      color: #fff;
+    }
+
+    .btn-secondary {
+      color: #0f172a;
+      background: #fff;
+      border-color: rgba(15, 23, 42, 0.14);
+    }
+
+    main { padding-bottom: 60px; }
+
+    section {
+      margin-top: 28px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 14px;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 1.35rem;
+      letter-spacing: -0.01em;
+    }
+
+    p { margin: 0; color: var(--muted); }
+
+    .grid {
+      margin-top: 14px;
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      border-radius: 12px;
+      background: linear-gradient(160deg, #fff, #f8fafc);
+      padding: 14px;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+
+    .card a {
+      color: var(--leaf);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .list li + li { margin-top: 8px; }
+
+    .micro-note {
+      margin-top: 12px;
+      padding: 12px 13px;
+      background: var(--leaf-soft);
+      border: 1px solid rgba(22, 101, 52, 0.2);
+      border-radius: 10px;
+      color: #14532d;
+    }
+
+    footer {
+      border-top: 1px solid #e2e8f0;
+      padding: 24px 0;
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="topbar">
+        <a class="crumb" href="index.html">← Back to Main Site</a>
+        <a class="quick-link" href="#thorne">Thorne & Newsletter</a>
+      </div>
+
+      <div class="hero">
+        <h1>Nutrition Intelligence Hub</h1>
+        <p class="lead">
+          This dedicated page is designed for your upcoming AI-powered nutrition search experience,
+          combining neural-style evidence routing with a cleaner plant-forward aesthetic for clinical
+          wellness, longevity, and education workflows.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#sources">Evidence Sources</a>
+          <a class="btn btn-secondary" href="#spectracell">Micronutrient Resources</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section id="ai-search" aria-labelledby="search-title">
+        <h2 id="search-title">AI-Powered Nutrition Search (Planned)</h2>
+        <p>
+          This section reserves space for an AI search engine that can retrieve, summarize, and compare
+          evidence for nutrition interventions, labs, and supplement strategy.
+        </p>
+        <ul class="list" style="margin-top: 12px;">
+          <li>Natural-language clinician query input.</li>
+          <li>Source-aware ranking from public evidence databases.</li>
+          <li>Structured output format for patient education and handouts.</li>
+        </ul>
+      </section>
+
+      <section id="sources" aria-labelledby="sources-title">
+        <h2 id="sources-title">Core Evidence Sources</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>NutritionFacts.org</h3>
+            <p>Evidence-informed nutrition videos, articles, and practical recommendations.</p>
+            <p style="margin-top: 8px;"><a href="https://nutritionfacts.org" target="_blank" rel="noopener noreferrer">Visit NutritionFacts.org</a></p>
+          </article>
+          <article class="card">
+            <h3>PubMed.gov</h3>
+            <p>Biomedical literature discovery and abstract review for research-grade references.</p>
+            <p style="margin-top: 8px;"><a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank" rel="noopener noreferrer">Search PubMed</a></p>
+          </article>
+          <article class="card">
+            <h3>AIStill Neural Layer</h3>
+            <p>Planned AI synthesis layer for rapid insight extraction across matched sources.</p>
+            <p style="margin-top: 8px;"><a href="mailto:hello@aistill.ai">Contact for implementation planning</a></p>
+          </article>
+        </div>
+      </section>
+
+      <section id="thorne" aria-labelledby="thorne-title">
+        <h2 id="thorne-title">Thorne Dispensary: Discount + Newsletter</h2>
+        <p>
+          Add your personalized Thorne dispensary URLs below to route visitors directly to your discount
+          page and opt-in channels.
+        </p>
+        <div class="grid">
+          <article class="card">
+            <h3>Discount Link</h3>
+            <p>Replace this URL with your clinician-specific dispensary discount link.</p>
+            <p style="margin-top: 8px;"><a href="https://www.thorne.com" target="_blank" rel="noopener noreferrer">Go to Thorne</a></p>
+          </article>
+          <article class="card">
+            <h3>Newsletter / Updates</h3>
+            <p>Use this to collect signups for nutrition updates and clinic education releases.</p>
+            <p style="margin-top: 8px;"><a href="https://www.thorne.com/account/register" target="_blank" rel="noopener noreferrer">Create Thorne account</a></p>
+          </article>
+          <article class="card">
+            <h3>Contact Capture</h3>
+            <p>Optional interim fallback until a custom form provider is integrated.</p>
+            <p style="margin-top: 8px;"><a href="mailto:hello@aistill.ai?subject=Nutrition%20Newsletter%20Signup">Email signup request</a></p>
+          </article>
+        </div>
+      </section>
+
+      <section id="spectracell" aria-labelledby="spectra-title">
+        <h2 id="spectra-title">SpectraCell Micronutrient Panel Resources</h2>
+        <p>
+          Include educational handouts and patient-facing resources linked to your workflow for
+          micronutrient interpretation.
+        </p>
+        <div class="grid">
+          <article class="card">
+            <h3>Micronutrient Testing</h3>
+            <p>Overview material for understanding how micronutrient panels are used in practice.</p>
+            <p style="margin-top: 8px;"><a href="https://spectracell.com/micronutrient-test-panel/" target="_blank" rel="noopener noreferrer">View panel details</a></p>
+          </article>
+          <article class="card">
+            <h3>Provider Resources</h3>
+            <p>Training and provider resources to support interpretation and follow-up plans.</p>
+            <p style="margin-top: 8px;"><a href="https://spectracell.com/healthcare-professionals/" target="_blank" rel="noopener noreferrer">Open provider resources</a></p>
+          </article>
+          <article class="card">
+            <h3>Patient Handouts</h3>
+            <p>Educational links and downloadable guidance to support patient conversations.</p>
+            <p style="margin-top: 8px;"><a href="https://spectracell.com/patients/" target="_blank" rel="noopener noreferrer">Open patient resources</a></p>
+          </article>
+        </div>
+        <p class="micro-note">
+          Tip: once your AI search is live, each handout can be paired with source-cited evidence cards
+          from NutritionFacts.org and PubMed for transparent patient education.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="y"></span> AIStill Nutrition. All rights reserved.</div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

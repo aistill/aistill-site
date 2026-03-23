@@ -15,6 +15,8 @@
       --border: #e2e8f0;
       --primary: #2563eb;
       --primary-dark: #1d4ed8;
+      --leaf: #15803d;
+      --leaf-soft: #dcfce7;
       --radius: 18px;
       --shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
     }
@@ -29,6 +31,7 @@
       background:
         radial-gradient(circle at 10% 0%, rgba(37, 99, 235, 0.16), transparent 32%),
         radial-gradient(circle at 90% 10%, rgba(14, 165, 233, 0.12), transparent 30%),
+        radial-gradient(circle at 5% 100%, rgba(21, 128, 61, 0.11), transparent 35%),
         var(--bg);
     }
 
@@ -47,6 +50,8 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 44px;
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
     .brand {
@@ -58,6 +63,13 @@
       display: block;
       width: min(290px, 62vw);
       height: auto;
+    }
+
+    .top-actions {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     .badge {
@@ -73,6 +85,19 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.04em;
+    }
+
+    .nav-pill {
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      color: #065f46;
+      border: 1px solid rgba(21, 128, 61, 0.28);
+      background: rgba(21, 128, 61, 0.1);
+      border-radius: 999px;
+      padding: 8px 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
     .hero {
@@ -203,6 +228,29 @@
     .card p,
     p { margin: 0; color: var(--muted); }
 
+    .nutrition-preview {
+      border: 1px solid rgba(21, 128, 61, 0.3);
+      background:
+        linear-gradient(120deg, rgba(220, 252, 231, 0.55), rgba(219, 234, 254, 0.55)),
+        #fff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .nutrition-actions {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-leaf {
+      color: #065f46;
+      background: var(--leaf-soft);
+      border-color: rgba(21, 128, 61, 0.32);
+    }
+
     .founder {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -235,7 +283,10 @@
         <div class="brand">
           <img src="assets/aistill-logo.svg" alt="AIStill" />
         </div>
-        <span class="badge">AI Infrastructure • Healthcare & Education</span>
+        <div class="top-actions">
+          <span class="badge">AI Infrastructure • Healthcare & Education</span>
+          <a class="nav-pill" href="nutrition.html">Nutrition Hub</a>
+        </div>
       </div>
 
       <div class="hero">
@@ -300,6 +351,22 @@
               and future large-scale deployment.
             </p>
           </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="nutrition-title">
+        <div class="section-head">
+          <h2 id="nutrition-title">Nutrition Intelligence</h2>
+        </div>
+        <div class="nutrition-preview">
+          <p>
+            We are launching a nutrition-focused hub that combines a plant-forward visual identity
+            with AI-driven research workflows and practical supplement guidance for clinical use.
+          </p>
+          <div class="nutrition-actions">
+            <a class="btn btn-leaf" href="nutrition.html">Open Nutrition Page</a>
+            <a class="btn btn-secondary" href="nutrition.html#sources">Preview source stack</a>
+          </div>
         </div>
       </section>
 
