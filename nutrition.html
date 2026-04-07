@@ -3,22 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AIStill Nutrition — Evidence + AI Search</title>
-  <meta name="description" content="AIStill Nutrition will provide an AI-powered nutrition evidence search experience with curated resources and supplement pathways." />
+  <title>AIStill Nutrition Hub — Client Intake + Thorne Signup</title>
+  <meta name="description" content="AIStill Nutrition Hub helps clients quickly join your supplement program and continue to your Thorne dispensary with a streamlined intake flow." />
   <style>
     :root {
       --bg: #f8fafc;
       --text: #0f172a;
       --muted: #475569;
       --surface: #ffffff;
-      --surface-soft: #ecfeff;
+      --surface-soft: #f0fdf4;
       --border: #dbeafe;
+      --border-strong: #bfdbfe;
       --primary: #2563eb;
       --primary-dark: #1d4ed8;
       --leaf: #166534;
       --leaf-soft: #dcfce7;
       --radius: 18px;
-      --shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+      --shadow: 0 16px 40px rgba(15, 23, 42, 0.09);
     }
 
     * { box-sizing: border-box; }
@@ -29,26 +30,26 @@
       line-height: 1.65;
       color: var(--text);
       background:
-        radial-gradient(circle at 85% -5%, rgba(37, 99, 235, 0.2), transparent 31%),
-        radial-gradient(circle at 0% 100%, rgba(22, 163, 74, 0.16), transparent 33%),
+        radial-gradient(circle at 95% -5%, rgba(37, 99, 235, 0.20), transparent 34%),
+        radial-gradient(circle at 5% 100%, rgba(22, 163, 74, 0.15), transparent 36%),
         var(--bg);
     }
 
     .wrap {
-      max-width: 1060px;
+      max-width: 1080px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
-    header { padding: 30px 0 38px; }
+    header { padding: 30px 0 34px; }
 
     .topbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
     }
 
     .crumb,
@@ -71,7 +72,7 @@
     .quick-link {
       color: #065f46;
       border: 1px solid rgba(22, 101, 52, 0.35);
-      background: rgba(22, 101, 52, 0.1);
+      background: rgba(22, 101, 52, 0.10);
     }
 
     .hero {
@@ -79,23 +80,23 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       background:
-        linear-gradient(145deg, rgba(236, 254, 255, 0.75), rgba(220, 252, 231, 0.65)),
+        linear-gradient(145deg, rgba(239, 246, 255, 0.85), rgba(220, 252, 231, 0.70)),
         var(--surface);
-      padding: 30px;
+      padding: 28px;
     }
 
     h1 {
-      margin: 0 0 12px;
-      font-size: clamp(1.9rem, 4.8vw, 3rem);
-      line-height: 1.12;
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.08;
       letter-spacing: -0.02em;
     }
 
     .lead {
       margin: 0;
-      font-size: 1.08rem;
       color: var(--muted);
-      max-width: 62ch;
+      max-width: 68ch;
+      font-size: 1.06rem;
     }
 
     .hero-actions {
@@ -115,7 +116,11 @@
       font-weight: 700;
       border: 1px solid transparent;
       transition: 160ms ease;
+      cursor: pointer;
+      font-size: 0.95rem;
     }
+
+    .btn:hover { transform: translateY(-1px); }
 
     .btn-primary {
       background: linear-gradient(180deg, var(--primary), var(--primary-dark));
@@ -128,19 +133,19 @@
       border-color: rgba(15, 23, 42, 0.14);
     }
 
-    main { padding-bottom: 60px; }
+    main { padding-bottom: 62px; }
 
     section {
-      margin-top: 28px;
-      border: 1px solid rgba(148, 163, 184, 0.25);
+      margin-top: 26px;
+      border: 1px solid rgba(148, 163, 184, 0.24);
       border-radius: 14px;
       background: #fff;
-      padding: 20px;
+      padding: 22px;
       box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
     }
 
     h2 {
-      margin: 0 0 12px;
+      margin: 0 0 10px;
       font-size: 1.35rem;
       letter-spacing: -0.01em;
     }
@@ -155,7 +160,7 @@
     }
 
     .card {
-      border: 1px solid rgba(148, 163, 184, 0.3);
+      border: 1px solid rgba(148, 163, 184, 0.28);
       border-radius: 12px;
       background: linear-gradient(160deg, #fff, #f8fafc);
       padding: 14px;
@@ -166,27 +171,96 @@
       font-size: 1rem;
     }
 
-    .card a {
-      color: var(--leaf);
+    .card p + p { margin-top: 6px; }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .field { display: grid; gap: 6px; }
+
+    label {
       font-weight: 700;
-      text-decoration: none;
+      font-size: 0.93rem;
+      color: #0f172a;
     }
 
-    .list {
-      margin: 0;
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--border-strong);
+      border-radius: 10px;
+      padding: 10px 11px;
+      font: inherit;
+      color: #0f172a;
+      background: #fff;
+    }
+
+    textarea { min-height: 110px; resize: vertical; }
+
+    .full { grid-column: 1 / -1; }
+
+    .consent {
+      margin-top: 4px;
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      color: #334155;
+      font-size: 0.95rem;
+    }
+
+    .consent input {
+      width: auto;
+      margin-top: 5px;
+    }
+
+    .form-actions {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .status {
+      margin-top: 10px;
+      font-size: 0.94rem;
+      font-weight: 600;
+      color: #166534;
+      min-height: 1.4em;
+    }
+
+    .success-panel {
+      margin-top: 16px;
+      border: 1px solid rgba(22, 101, 52, 0.26);
+      background: var(--surface-soft);
+      border-radius: 12px;
+      padding: 14px;
+      display: none;
+    }
+
+    .success-panel.show { display: block; }
+
+    .next-steps {
+      margin: 8px 0 0;
       padding-left: 20px;
-      color: var(--muted);
+      color: #14532d;
     }
 
-    .list li + li { margin-top: 8px; }
+    .next-steps li + li { margin-top: 6px; }
 
     .micro-note {
       margin-top: 12px;
       padding: 12px 13px;
-      background: var(--leaf-soft);
-      border: 1px solid rgba(22, 101, 52, 0.2);
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
       border-radius: 10px;
-      color: #14532d;
+      color: #334155;
+      font-size: 0.95rem;
     }
 
     footer {
@@ -197,8 +271,10 @@
     }
 
     @media (max-width: 900px) {
-      .grid { grid-template-columns: 1fr; }
-      .hero { padding: 24px; }
+      .grid,
+      .form-grid { grid-template-columns: 1fr; }
+      .hero,
+      section { padding: 20px; }
     }
   </style>
 </head>
@@ -207,19 +283,18 @@
     <div class="wrap">
       <div class="topbar">
         <a class="crumb" href="index.html">← Back to Main Site</a>
-        <a class="quick-link" href="#thorne">Thorne & Newsletter</a>
+        <a class="quick-link" href="#client-intake">Client Intake + Thorne Signup</a>
       </div>
 
       <div class="hero">
-        <h1>Nutrition Intelligence Hub</h1>
+        <h1>Nutrition Hub That Converts Visitors Into Clients</h1>
         <p class="lead">
-          This dedicated page is designed for your upcoming AI-powered nutrition search experience,
-          combining neural-style evidence routing with a cleaner plant-forward aesthetic for clinical
-          wellness, longevity, and education workflows.
+          A streamlined intake flow helps new clients share their goals, opt into your communication,
+          and move directly into your Thorne dispensary experience with fewer drop-offs.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#sources">Evidence Sources</a>
-          <a class="btn btn-secondary" href="#spectracell">Micronutrient Resources</a>
+          <a class="btn btn-primary" href="#client-intake">Start Intake</a>
+          <a class="btn btn-secondary" href="#sources">View Evidence Sources</a>
         </div>
       </div>
     </div>
@@ -227,17 +302,96 @@
 
   <main>
     <div class="wrap">
-      <section id="ai-search" aria-labelledby="search-title">
-        <h2 id="search-title">AI-Powered Nutrition Search (Planned)</h2>
+      <section>
+        <h2>How This Hub Helps You Get Clients Signed Up Faster</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>1) Simple client intake</h3>
+            <p>Capture name, email, and focus area in one fast form.</p>
+          </article>
+          <article class="card">
+            <h3>2) Immediate next step</h3>
+            <p>Send them straight to your dispensary and account setup.</p>
+          </article>
+          <article class="card">
+            <h3>3) Better follow-up</h3>
+            <p>Keep lead details saved locally so no inquiry is lost.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="client-intake" aria-labelledby="intake-title">
+        <h2 id="intake-title">Client Intake + Thorne Signup</h2>
         <p>
-          This section reserves space for an AI search engine that can retrieve, summarize, and compare
-          evidence for nutrition interventions, labs, and supplement strategy.
+          Complete this quick intake to join the nutrition program. After submission, you will be routed to the Thorne dispensary link.
         </p>
-        <ul class="list" style="margin-top: 12px;">
-          <li>Natural-language clinician query input.</li>
-          <li>Source-aware ranking from public evidence databases.</li>
-          <li>Structured output format for patient education and handouts.</li>
-        </ul>
+
+        <form id="lead-form" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Full Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="goal">Primary Goal</label>
+              <select id="goal" name="goal" required>
+                <option value="">Select one</option>
+                <option>Energy & recovery</option>
+                <option>Weight & body composition</option>
+                <option>Cardiometabolic health</option>
+                <option>Digestive support</option>
+                <option>Performance & longevity</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="contact">Preferred Contact</label>
+              <select id="contact" name="contact" required>
+                <option value="">Select one</option>
+                <option>Email</option>
+                <option>Text message</option>
+                <option>Phone call</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="notes">Notes (optional)</label>
+              <textarea id="notes" name="notes" placeholder="Anything you want us to know before onboarding."></textarea>
+            </div>
+            <div class="field full">
+              <label class="consent" for="consent">
+                <input id="consent" name="consent" type="checkbox" required />
+                <span>I agree to receive onboarding communication and understand this is educational wellness guidance, not emergency medical care.</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit">Save Intake + Continue</button>
+            <a id="create-account-link" class="btn btn-secondary" href="#" target="_blank" rel="noopener noreferrer">Create Thorne Account</a>
+          </div>
+          <p class="status" id="form-status" aria-live="polite"></p>
+        </form>
+
+        <div id="success-panel" class="success-panel" aria-live="polite">
+          <strong>Thanks — your intake was saved.</strong>
+          <ul class="next-steps">
+            <li>Step 1: Open your dispensary and complete account setup.</li>
+            <li>Step 2: Confirm your preferred plan with your provider.</li>
+            <li>Step 3: Keep an eye on your inbox for your next check-in.</li>
+          </ul>
+          <div class="form-actions">
+            <a id="dispensary-link" class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer">Open Thorne Dispensary</a>
+            <a id="email-link" class="btn btn-secondary" href="#">Send Intake by Email</a>
+            <button id="copy-lead" class="btn btn-secondary" type="button">Copy Intake Details</button>
+          </div>
+        </div>
+
+        <p class="micro-note">
+          Admin tip: update the Thorne URLs in the script config once your clinician-specific dispensary links are finalized.
+        </p>
       </section>
 
       <section id="sources" aria-labelledby="sources-title">
@@ -245,74 +399,20 @@
         <div class="grid">
           <article class="card">
             <h3>NutritionFacts.org</h3>
-            <p>Evidence-informed nutrition videos, articles, and practical recommendations.</p>
-            <p style="margin-top: 8px;"><a href="https://nutritionfacts.org" target="_blank" rel="noopener noreferrer">Visit NutritionFacts.org</a></p>
+            <p>Evidence-informed nutrition videos and practical recommendations.</p>
+            <p><a href="https://nutritionfacts.org" target="_blank" rel="noopener noreferrer">Visit NutritionFacts.org</a></p>
           </article>
           <article class="card">
             <h3>PubMed.gov</h3>
-            <p>Biomedical literature discovery and abstract review for research-grade references.</p>
-            <p style="margin-top: 8px;"><a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank" rel="noopener noreferrer">Search PubMed</a></p>
+            <p>Biomedical literature discovery for research-grade references.</p>
+            <p><a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank" rel="noopener noreferrer">Search PubMed</a></p>
           </article>
           <article class="card">
-            <h3>AIStill Neural Layer</h3>
-            <p>Planned AI synthesis layer for rapid insight extraction across matched sources.</p>
-            <p style="margin-top: 8px;"><a href="mailto:hello@aistill.ai">Contact for implementation planning</a></p>
+            <h3>SpectraCell Resources</h3>
+            <p>Micronutrient education for provider and patient conversations.</p>
+            <p><a href="https://spectracell.com/patients/" target="_blank" rel="noopener noreferrer">Open SpectraCell Resources</a></p>
           </article>
         </div>
-      </section>
-
-      <section id="thorne" aria-labelledby="thorne-title">
-        <h2 id="thorne-title">Thorne Dispensary: Discount + Newsletter</h2>
-        <p>
-          Add your personalized Thorne dispensary URLs below to route visitors directly to your discount
-          page and opt-in channels.
-        </p>
-        <div class="grid">
-          <article class="card">
-            <h3>Discount Link</h3>
-            <p>Replace this URL with your clinician-specific dispensary discount link.</p>
-            <p style="margin-top: 8px;"><a href="https://www.thorne.com" target="_blank" rel="noopener noreferrer">Go to Thorne</a></p>
-          </article>
-          <article class="card">
-            <h3>Newsletter / Updates</h3>
-            <p>Use this to collect signups for nutrition updates and clinic education releases.</p>
-            <p style="margin-top: 8px;"><a href="https://www.thorne.com/account/register" target="_blank" rel="noopener noreferrer">Create Thorne account</a></p>
-          </article>
-          <article class="card">
-            <h3>Contact Capture</h3>
-            <p>Optional interim fallback until a custom form provider is integrated.</p>
-            <p style="margin-top: 8px;"><a href="mailto:hello@aistill.ai?subject=Nutrition%20Newsletter%20Signup">Email signup request</a></p>
-          </article>
-        </div>
-      </section>
-
-      <section id="spectracell" aria-labelledby="spectra-title">
-        <h2 id="spectra-title">SpectraCell Micronutrient Panel Resources</h2>
-        <p>
-          Include educational handouts and patient-facing resources linked to your workflow for
-          micronutrient interpretation.
-        </p>
-        <div class="grid">
-          <article class="card">
-            <h3>Micronutrient Testing</h3>
-            <p>Overview material for understanding how micronutrient panels are used in practice.</p>
-            <p style="margin-top: 8px;"><a href="https://spectracell.com/micronutrient-test-panel/" target="_blank" rel="noopener noreferrer">View panel details</a></p>
-          </article>
-          <article class="card">
-            <h3>Provider Resources</h3>
-            <p>Training and provider resources to support interpretation and follow-up plans.</p>
-            <p style="margin-top: 8px;"><a href="https://spectracell.com/healthcare-professionals/" target="_blank" rel="noopener noreferrer">Open provider resources</a></p>
-          </article>
-          <article class="card">
-            <h3>Patient Handouts</h3>
-            <p>Educational links and downloadable guidance to support patient conversations.</p>
-            <p style="margin-top: 8px;"><a href="https://spectracell.com/patients/" target="_blank" rel="noopener noreferrer">Open patient resources</a></p>
-          </article>
-        </div>
-        <p class="micro-note">
-          Tip: once your AI search is live, each handout can be paired with source-cited evidence cards
-          from NutritionFacts.org and PubMed for transparent patient education.
-        </p>
       </section>
     </div>
   </main>
@@ -322,6 +422,89 @@
   </footer>
 
   <script>
+    const HUB_CONFIG = {
+      thorneDispensaryUrl: 'https://www.thorne.com',
+      thorneCreateAccountUrl: 'https://www.thorne.com/account/register',
+      intakeEmail: 'hello@aistill.ai'
+    };
+
+    const leadForm = document.getElementById('lead-form');
+    const statusEl = document.getElementById('form-status');
+    const successPanel = document.getElementById('success-panel');
+    const dispensaryLink = document.getElementById('dispensary-link');
+    const createAccountLink = document.getElementById('create-account-link');
+    const emailLink = document.getElementById('email-link');
+    const copyLeadBtn = document.getElementById('copy-lead');
+
+    createAccountLink.href = HUB_CONFIG.thorneCreateAccountUrl;
+
+    const buildDispensaryUrl = (email) => {
+      const url = new URL(HUB_CONFIG.thorneDispensaryUrl);
+      url.searchParams.set('utm_source', 'aistill_nutrition_hub');
+      url.searchParams.set('utm_medium', 'website');
+      url.searchParams.set('utm_campaign', 'client_signup');
+      url.searchParams.set('lead_email', email);
+      return url.toString();
+    };
+
+    const buildLeadSummary = (lead) => [
+      `Date: ${lead.timestamp}`,
+      `Name: ${lead.name}`,
+      `Email: ${lead.email}`,
+      `Goal: ${lead.goal}`,
+      `Contact preference: ${lead.contact}`,
+      `Notes: ${lead.notes || 'None'}`
+    ].join('\n');
+
+    leadForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      statusEl.textContent = '';
+
+      const formData = new FormData(leadForm);
+      const lead = {
+        timestamp: new Date().toISOString(),
+        name: String(formData.get('name') || '').trim(),
+        email: String(formData.get('email') || '').trim(),
+        goal: String(formData.get('goal') || '').trim(),
+        contact: String(formData.get('contact') || '').trim(),
+        notes: String(formData.get('notes') || '').trim(),
+        consent: formData.get('consent') === 'on'
+      };
+
+      if (!lead.name || !lead.email || !lead.goal || !lead.contact || !lead.consent) {
+        statusEl.textContent = 'Please complete all required fields before continuing.';
+        statusEl.style.color = '#b91c1c';
+        return;
+      }
+
+      const stored = JSON.parse(localStorage.getItem('aistillNutritionLeads') || '[]');
+      stored.push(lead);
+      localStorage.setItem('aistillNutritionLeads', JSON.stringify(stored));
+
+      const summary = buildLeadSummary(lead);
+      const encodedSubject = encodeURIComponent(`New Nutrition Intake: ${lead.name}`);
+      const encodedBody = encodeURIComponent(summary);
+
+      dispensaryLink.href = buildDispensaryUrl(lead.email);
+      emailLink.href = `mailto:${HUB_CONFIG.intakeEmail}?subject=${encodedSubject}&body=${encodedBody}`;
+
+      copyLeadBtn.onclick = async () => {
+        try {
+          await navigator.clipboard.writeText(summary);
+          statusEl.textContent = 'Intake details copied to clipboard.';
+          statusEl.style.color = '#166534';
+        } catch (error) {
+          statusEl.textContent = 'Could not copy automatically. Please use the email button instead.';
+          statusEl.style.color = '#b45309';
+        }
+      };
+
+      statusEl.textContent = 'Intake saved. Continue to Thorne below.';
+      statusEl.style.color = '#166534';
+      successPanel.classList.add('show');
+      successPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
