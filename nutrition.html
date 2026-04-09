@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AIStill Nutrition Hub — Client Intake + Thorne Signup</title>
-  <meta name="description" content="AIStill Nutrition Hub helps clients quickly join your supplement program and continue to your Thorne dispensary with a streamlined intake flow." />
+  <title>AIStill Nutrition Intelligence Lab</title>
+  <meta name="description" content="AIStill Nutrition Intelligence Lab combines evidence mapping, structured intake, and AI-assisted education workflows for nutrition programs." />
   <style>
     :root {
       --bg: #f8fafc;
@@ -273,6 +273,7 @@
     @media (max-width: 900px) {
       .grid,
       .form-grid { grid-template-columns: 1fr; }
+
       .hero,
       section { padding: 20px; }
     }
@@ -283,17 +284,17 @@
     <div class="wrap">
       <div class="topbar">
         <a class="crumb" href="index.html">← Back to Main Site</a>
-        <a class="quick-link" href="#client-intake">Client Intake + Thorne Signup</a>
+        <a class="quick-link" href="#program-intake">Program Intake</a>
       </div>
 
       <div class="hero">
-        <h1>Nutrition Hub That Converts Visitors Into Clients</h1>
+        <h1>Nutrition Intelligence Lab</h1>
         <p class="lead">
-          A streamlined intake flow helps new clients share their goals, opt into your communication,
-          and move directly into your Thorne dispensary experience with fewer drop-offs.
+          A clean, evidence-aware workspace for nutrition and wellness programs: capture participant goals,
+          organize guidance priorities, and share structured next steps with your team.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#client-intake">Start Intake</a>
+          <a class="btn btn-primary" href="#program-intake">Start Intake</a>
           <a class="btn btn-secondary" href="#sources">View Evidence Sources</a>
         </div>
       </div>
@@ -303,27 +304,27 @@
   <main>
     <div class="wrap">
       <section>
-        <h2>How This Hub Helps You Get Clients Signed Up Faster</h2>
+        <h2>How This Supports Scalable Nutrition Operations</h2>
         <div class="grid">
           <article class="card">
-            <h3>1) Simple client intake</h3>
-            <p>Capture name, email, and focus area in one fast form.</p>
+            <h3>1) Structured intake</h3>
+            <p>Capture participant profile and goals in a single streamlined workflow.</p>
           </article>
           <article class="card">
-            <h3>2) Immediate next step</h3>
-            <p>Send them straight to your dispensary and account setup.</p>
+            <h3>2) Team-ready summary</h3>
+            <p>Create a standardized handoff summary for education and follow-up planning.</p>
           </article>
           <article class="card">
-            <h3>3) Better follow-up</h3>
-            <p>Keep lead details saved locally so no inquiry is lost.</p>
+            <h3>3) Consistent communication</h3>
+            <p>Support a repeatable onboarding process with clear consent and contact preferences.</p>
           </article>
         </div>
       </section>
 
-      <section id="client-intake" aria-labelledby="intake-title">
-        <h2 id="intake-title">Client Intake + Thorne Signup</h2>
+      <section id="program-intake" aria-labelledby="intake-title">
+        <h2 id="intake-title">Program Intake</h2>
         <p>
-          Complete this quick intake to join the nutrition program. After submission, you will be routed to the Thorne dispensary link.
+          Complete this brief intake to help our team prepare a personalized onboarding summary.
         </p>
 
         <form id="lead-form" novalidate>
@@ -358,7 +359,7 @@
             </div>
             <div class="field full">
               <label for="notes">Notes (optional)</label>
-              <textarea id="notes" name="notes" placeholder="Anything you want us to know before onboarding."></textarea>
+              <textarea id="notes" name="notes" placeholder="Anything you want our team to know before onboarding."></textarea>
             </div>
             <div class="field full">
               <label class="consent" for="consent">
@@ -369,8 +370,9 @@
           </div>
 
           <div class="form-actions">
-            <button class="btn btn-primary" type="submit">Save Intake + Continue</button>
-            <a id="create-account-link" class="btn btn-secondary" href="#" target="_blank" rel="noopener noreferrer">Create Thorne Account</a>
+            <button class="btn btn-primary" type="submit">Save Intake</button>
+            <button id="copy-lead" class="btn btn-secondary" type="button">Copy Intake Details</button>
+            <a id="email-link" class="btn btn-secondary" href="#">Email Intake</a>
           </div>
           <p class="status" id="form-status" aria-live="polite"></p>
         </form>
@@ -378,19 +380,14 @@
         <div id="success-panel" class="success-panel" aria-live="polite">
           <strong>Thanks — your intake was saved.</strong>
           <ul class="next-steps">
-            <li>Step 1: Open your dispensary and complete account setup.</li>
-            <li>Step 2: Confirm your preferred plan with your provider.</li>
-            <li>Step 3: Keep an eye on your inbox for your next check-in.</li>
+            <li>Step 1: A team member reviews your goals and preferences.</li>
+            <li>Step 2: You receive a personalized onboarding follow-up.</li>
+            <li>Step 3: We align a practical nutrition support plan.</li>
           </ul>
-          <div class="form-actions">
-            <a id="dispensary-link" class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer">Open Thorne Dispensary</a>
-            <a id="email-link" class="btn btn-secondary" href="#">Send Intake by Email</a>
-            <button id="copy-lead" class="btn btn-secondary" type="button">Copy Intake Details</button>
-          </div>
         </div>
 
         <p class="micro-note">
-          Update the Thorne URLs in the script config once your clinician-specific dispensary links are finalized.
+          This page intentionally avoids third-party account signup links and keeps the intake flow neutral and program-centric.
         </p>
       </section>
 
@@ -423,29 +420,14 @@
 
   <script>
     const HUB_CONFIG = {
-      thorneDispensaryUrl: 'https://www.thorne.com/u/PR059428',
-      thorneCreateAccountUrl: 'https://www.thorne.com/account/register',
       intakeEmail: 'hello@aistill.ai'
     };
 
     const leadForm = document.getElementById('lead-form');
     const statusEl = document.getElementById('form-status');
     const successPanel = document.getElementById('success-panel');
-    const dispensaryLink = document.getElementById('dispensary-link');
-    const createAccountLink = document.getElementById('create-account-link');
     const emailLink = document.getElementById('email-link');
     const copyLeadBtn = document.getElementById('copy-lead');
-
-    createAccountLink.href = HUB_CONFIG.thorneCreateAccountUrl;
-
-    const buildDispensaryUrl = (email) => {
-      const url = new URL(HUB_CONFIG.thorneDispensaryUrl);
-      url.searchParams.set('utm_source', 'aistill_nutrition_hub');
-      url.searchParams.set('utm_medium', 'website');
-      url.searchParams.set('utm_campaign', 'client_signup');
-      url.searchParams.set('lead_email', email);
-      return url.toString();
-    };
 
     const buildLeadSummary = (lead) => [
       `Date: ${lead.timestamp}`,
@@ -455,6 +437,25 @@
       `Contact preference: ${lead.contact}`,
       `Notes: ${lead.notes || 'None'}`
     ].join('\n');
+
+    let latestSummary = '';
+
+    copyLeadBtn.addEventListener('click', async () => {
+      if (!latestSummary) {
+        statusEl.textContent = 'Submit the intake first to copy details.';
+        statusEl.style.color = '#b45309';
+        return;
+      }
+
+      try {
+        await navigator.clipboard.writeText(latestSummary);
+        statusEl.textContent = 'Intake details copied to clipboard.';
+        statusEl.style.color = '#166534';
+      } catch (error) {
+        statusEl.textContent = 'Could not copy automatically. Please use the email button instead.';
+        statusEl.style.color = '#b45309';
+      }
+    });
 
     leadForm.addEventListener('submit', (event) => {
       event.preventDefault();
@@ -481,25 +482,12 @@
       stored.push(lead);
       localStorage.setItem('aistillNutritionLeads', JSON.stringify(stored));
 
-      const summary = buildLeadSummary(lead);
+      latestSummary = buildLeadSummary(lead);
       const encodedSubject = encodeURIComponent(`New Nutrition Intake: ${lead.name}`);
-      const encodedBody = encodeURIComponent(summary);
-
-      dispensaryLink.href = buildDispensaryUrl(lead.email);
+      const encodedBody = encodeURIComponent(latestSummary);
       emailLink.href = `mailto:${HUB_CONFIG.intakeEmail}?subject=${encodedSubject}&body=${encodedBody}`;
 
-      copyLeadBtn.onclick = async () => {
-        try {
-          await navigator.clipboard.writeText(summary);
-          statusEl.textContent = 'Intake details copied to clipboard.';
-          statusEl.style.color = '#166534';
-        } catch (error) {
-          statusEl.textContent = 'Could not copy automatically. Please use the email button instead.';
-          statusEl.style.color = '#b45309';
-        }
-      };
-
-      statusEl.textContent = 'Intake saved. Continue to Thorne below.';
+      statusEl.textContent = 'Intake saved successfully.';
       statusEl.style.color = '#166534';
       successPanel.classList.add('show');
       successPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });

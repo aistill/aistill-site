@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AIStill — Clinical & Medical Education Intelligence</title>
-  <meta name="description" content="AIStill builds AI-powered infrastructure that structures, analyzes, and operationalizes clinical and medical education data." />
+  <title>AIStill — AI Infrastructure for Clinical & Medical Education Intelligence</title>
+  <meta name="description" content="AIStill builds production-ready AI infrastructure for clinical and medical education intelligence with scalable, accelerated workflows." />
   <style>
     :root {
       --bg: #f8fafc;
@@ -15,8 +15,7 @@
       --border: #e2e8f0;
       --primary: #2563eb;
       --primary-dark: #1d4ed8;
-      --leaf: #15803d;
-      --leaf-soft: #dcfce7;
+      --accent: #16a34a;
       --radius: 18px;
       --shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
     }
@@ -26,37 +25,30 @@
     body {
       margin: 0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height: 1.6;
+      line-height: 1.62;
       color: var(--text);
       background:
-        radial-gradient(circle at 10% 0%, rgba(37, 99, 235, 0.16), transparent 32%),
-        radial-gradient(circle at 90% 10%, rgba(14, 165, 233, 0.12), transparent 30%),
-        radial-gradient(circle at 5% 100%, rgba(21, 128, 61, 0.11), transparent 35%),
+        radial-gradient(circle at 8% 0%, rgba(37, 99, 235, 0.16), transparent 30%),
+        radial-gradient(circle at 92% 8%, rgba(14, 165, 233, 0.12), transparent 28%),
+        radial-gradient(circle at 6% 100%, rgba(22, 163, 74, 0.11), transparent 34%),
         var(--bg);
     }
 
     .wrap {
-      max-width: 1080px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
-    header {
-      padding: 28px 0 84px;
-    }
+    header { padding: 28px 0 84px; }
 
     .topbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 44px;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
     }
 
     .brand img {
@@ -72,38 +64,35 @@
       flex-wrap: wrap;
     }
 
-    .badge {
+    .badge,
+    .nav-pill {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 8px 12px;
+    }
+
+    .badge {
       border: 1px solid rgba(37, 99, 235, 0.25);
       color: #1e40af;
       background: rgba(37, 99, 235, 0.07);
-      padding: 7px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
     }
 
     .nav-pill {
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 700;
       color: #065f46;
-      border: 1px solid rgba(21, 128, 61, 0.28);
-      background: rgba(21, 128, 61, 0.1);
-      border-radius: 999px;
-      padding: 8px 12px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      border: 1px solid rgba(22, 163, 74, 0.28);
+      background: rgba(22, 163, 74, 0.1);
     }
 
     .hero {
       display: grid;
       grid-template-columns: 1.15fr .85fr;
-      gap: 28px;
+      gap: 24px;
       align-items: stretch;
     }
 
@@ -118,7 +107,7 @@
 
     h1 {
       margin: 14px 0 12px;
-      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-size: clamp(2rem, 5vw, 3.45rem);
       line-height: 1.08;
       letter-spacing: -0.03em;
     }
@@ -127,7 +116,7 @@
       margin: 0;
       color: var(--muted);
       font-size: 1.1rem;
-      max-width: 56ch;
+      max-width: 62ch;
     }
 
     .cta {
@@ -149,12 +138,12 @@
       transition: 160ms ease;
     }
 
+    .btn:hover { transform: translateY(-1px); }
+
     .btn-primary {
       background: linear-gradient(180deg, var(--primary), var(--primary-dark));
       color: #fff;
     }
-
-    .btn-primary:hover { transform: translateY(-1px); }
 
     .btn-secondary {
       color: var(--primary-dark);
@@ -184,7 +173,7 @@
 
     .stats strong {
       display: block;
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       letter-spacing: -0.01em;
     }
 
@@ -225,31 +214,23 @@
       font-size: 1.05rem;
     }
 
-    .card p,
     p { margin: 0; color: var(--muted); }
 
-    .nutrition-preview {
-      border: 1px solid rgba(21, 128, 61, 0.3);
-      background:
-        linear-gradient(120deg, rgba(220, 252, 231, 0.55), rgba(219, 234, 254, 0.55)),
-        #fff;
+    .inception {
+      border: 1px solid rgba(37, 99, 235, 0.32);
+      background: linear-gradient(120deg, rgba(219, 234, 254, 0.5), rgba(236, 253, 245, 0.55)), #fff;
       border-radius: 16px;
       padding: 20px;
       box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
     }
 
-    .nutrition-actions {
-      margin-top: 14px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+    .inception ul {
+      margin: 10px 0 0;
+      padding-left: 20px;
+      color: #1e293b;
     }
 
-    .btn-leaf {
-      color: #065f46;
-      background: var(--leaf-soft);
-      border-color: rgba(21, 128, 61, 0.32);
-    }
+    .inception li + li { margin-top: 8px; }
 
     .founder {
       background: var(--surface);
@@ -267,11 +248,14 @@
     }
 
     @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
+      .hero,
       .grid { grid-template-columns: 1fr; }
+
       .hero-panel,
       .hero-side { padding: 24px; }
+
       .topbar { margin-bottom: 26px; }
+
       .brand img { width: min(240px, 70vw); }
     }
   </style>
@@ -284,21 +268,21 @@
           <img src="assets/aistill-logo.svg" alt="AIStill" />
         </div>
         <div class="top-actions">
-          <span class="badge">AI Infrastructure • Healthcare & Education</span>
-          <a class="nav-pill" href="nutrition.html">Nutrition Hub</a>
+          <span class="badge">Clinical AI Infrastructure</span>
+          <a class="nav-pill" href="nutrition.html">Nutrition Intelligence Lab</a>
         </div>
       </div>
 
       <div class="hero">
         <section class="hero-panel" aria-labelledby="hero-title">
-          <h1 id="hero-title">Clinical and education intelligence, built for real-world care.</h1>
+          <h1 id="hero-title">Clinical and education intelligence engineered for deployment.</h1>
           <p class="lead">
-            AIStill builds AI-powered infrastructure that structures, analyzes, and operationalizes
-            clinical and medical education data for modern healthcare teams and training programs.
+            AIStill develops production-ready intelligence workflows that transform unstructured clinical and medical
+            education data into actionable outputs for care teams, training programs, and research operations.
           </p>
           <div class="cta">
-            <a class="btn btn-primary" href="mailto:hello@aistill.ai">Request early access</a>
-            <a class="btn btn-secondary" href="#what-we-build">Explore platform focus</a>
+            <a class="btn btn-primary" href="mailto:hello@aistill.ai?subject=AIStill%20Platform%20Inquiry">Request a platform briefing</a>
+            <a class="btn btn-secondary" href="#inception-readiness">See Inception readiness</a>
           </div>
         </section>
 
@@ -306,16 +290,16 @@
           <h2>Platform Highlights</h2>
           <ul class="stats">
             <li>
-              <strong>Structured intelligence</strong>
-              Converts unstructured records into decision-ready outputs.
+              <strong>Multi-source data orchestration</strong>
+              Ingests notes, curricula, and outcomes data into standardized intelligence layers.
             </li>
             <li>
-              <strong>Clinical + education workflows</strong>
-              Designed for both patient care operations and training programs.
+              <strong>Clinician-aligned workflow design</strong>
+              Human-centered outputs focused on trust, utility, and operational clarity.
             </li>
             <li>
-              <strong>Scalable architecture</strong>
-              Low-latency AI infrastructure prepared for production growth.
+              <strong>Accelerated compute posture</strong>
+              Architecture optimized for modern low-latency inference stacks.
             </li>
           </ul>
         </aside>
@@ -327,45 +311,56 @@
     <div class="wrap">
       <section id="what-we-build" aria-labelledby="build-title">
         <div class="section-head">
-          <h2 id="build-title">What We’re Building</h2>
+          <h2 id="build-title">What We Build</h2>
         </div>
         <div class="grid">
           <article class="card">
-            <h3>Clinical Intelligence</h3>
+            <h3>Clinical Intelligence Systems</h3>
             <p>
-              Automated structuring and analysis of clinical data to support faster,
-              more consistent decision workflows.
+              Automated structuring, summarization, and retrieval workflows that support faster, more consistent clinical decisions.
             </p>
           </article>
           <article class="card">
             <h3>Medical Education AI</h3>
             <p>
-              AI-assisted tools for osteopathic and medical training environments,
-              enabling scalable, high-fidelity learning support.
+              AI copilots and analytics for osteopathic and medical training environments with quality-focused oversight.
             </p>
           </article>
           <article class="card">
-            <h3>Scalable AI Infrastructure</h3>
+            <h3>Operational AI Infrastructure</h3>
             <p>
-              Built to leverage modern accelerated compute for low-latency inference
-              and future large-scale deployment.
+              Secure, scalable pipelines designed to move from prototype to production deployment without major rework.
             </p>
           </article>
         </div>
       </section>
 
+      <section id="inception-readiness" aria-labelledby="inception-title">
+        <div class="section-head">
+          <h2 id="inception-title">NVIDIA Inception Readiness Snapshot</h2>
+        </div>
+        <div class="inception">
+          <p>
+            AIStill is intentionally structured for accelerated AI programs and ecosystem collaboration.
+          </p>
+          <ul>
+            <li>Clear healthcare + medical education vertical focus with measurable workflow impact targets.</li>
+            <li>Roadmap aligned with GPU-accelerated inference, scalable model serving, and rapid iteration cycles.</li>
+            <li>Early partner mindset: clinical validation, responsible AI operations, and enterprise implementation planning.</li>
+          </ul>
+        </div>
+      </section>
+
       <section aria-labelledby="nutrition-title">
         <div class="section-head">
-          <h2 id="nutrition-title">Nutrition Intelligence</h2>
+          <h2 id="nutrition-title">Nutrition Intelligence Lab</h2>
         </div>
-        <div class="nutrition-preview">
+        <div class="card">
           <p>
-            We are launching a nutrition-focused hub that combines a plant-forward visual identity
-            with AI-driven research workflows and practical supplement guidance for clinical use.
+            Explore AIStill’s nutrition-focused workspace for evidence mapping, intake capture, and practical educational resources.
           </p>
-          <div class="nutrition-actions">
-            <a class="btn btn-leaf" href="nutrition.html">Open Nutrition Page</a>
-            <a class="btn btn-secondary" href="nutrition.html#sources">Preview source stack</a>
+          <div class="cta" style="margin-top:14px">
+            <a class="btn btn-secondary" href="nutrition.html">Open Nutrition Intelligence Lab</a>
           </div>
         </div>
       </section>
@@ -376,8 +371,8 @@
         </div>
         <div class="founder">
           <p>
-            <strong>Patrick Barry, D.O.</strong> is a double board-certified physician and Associate Professor
-            focused on applying artificial intelligence to clinical and medical education workflows.
+            <strong>Patrick Barry, D.O.</strong> is a double board-certified physician and Associate Professor focused on
+            applying artificial intelligence to clinical and medical education workflows.
           </p>
         </div>
       </section>
