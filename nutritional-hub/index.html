@@ -1,0 +1,112 @@
+<!--
+  AIStill.ai — Nutritional Intelligence Hub
+  Tier 2: AI Results Interpretation
+  v1.0 | Built for Cloudflare Pages + Workers
+  Auth integration point: search "AUTH STUB" for drop-in hooks
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nutritional Intelligence Hub | AIStill.ai</title>
+  <meta name="description" content="Upload SpectraCell Micronutrient Test results and receive a structured AI interpretation for discussion with your healthcare provider." />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/hub.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="container nav" aria-label="Nutritional Intelligence Hub navigation">
+        <a class="brand-link" href="../index.html">AIStill.ai</a>
+        <nav class="nav-links" aria-label="Hub pages">
+          <a class="nav-link" href="index.html" aria-current="page">Hub</a>
+          <a class="nav-link" href="intake.html">Interpret Results</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow">Nutritional Intelligence Hub</p>
+            <h1 id="hero-title">Your cells know things your bloodwork doesn't.</h1>
+            <p class="hero-subhead">Upload your SpectraCell results. Our AI reads the pattern, not just the numbers.</p>
+            <a class="button" href="intake.html">Interpret My Results &rarr;</a>
+          </div>
+          <aside class="hero-card" aria-labelledby="clinical-scope-title">
+            <h2 id="clinical-scope-title">Built for interpretation, not diagnosis</h2>
+            <ul>
+              <li>Plain-language findings organized for patient and provider review.</li>
+              <li>No supplement product recommendations or dosage guidance in v1.</li>
+              <li>Session-only storage while account infrastructure is deferred.</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="tiers-title">
+        <div class="container">
+          <div class="section-header">
+            <h2 id="tiers-title">A focused v1: understand the panel</h2>
+            <p>The hub is structured as a clinical workflow, with ordering and follow-up guidance intentionally deferred until the interpretation layer is working cleanly.</p>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-card is-disabled" aria-disabled="true">
+              <span class="status-badge soon">Coming Soon</span>
+              <h3>Assess</h3>
+              <p>Panel ordering and guided pre-test intake will be added after the interpretation layer is validated.</p>
+            </article>
+            <article class="feature-card">
+              <span class="status-badge">Available Now</span>
+              <h3>Understand</h3>
+              <p>Paste or upload SpectraCell MNT results and receive a structured AI interpretation for provider discussion.</p>
+            </article>
+            <article class="feature-card is-disabled" aria-disabled="true">
+              <span class="status-badge soon">Coming Soon</span>
+              <h3>Act</h3>
+              <p>Future follow-up planning will remain data-driven and will not replace medical supervision.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="education-title">
+        <div class="container education-grid">
+          <div class="content-block">
+            <div class="section-header">
+              <h2 id="education-title">What intracellular micronutrient testing adds</h2>
+              <p>SpectraCell Micronutrient Testing is designed to look at functional intracellular nutrient status. Instead of only counting molecules in serum at one point in time, the panel evaluates how cells perform in culture when specific nutrients are limited or restored.</p>
+            </div>
+            <p>This does not make it a replacement for standard bloodwork. It can be complementary and more granular, especially when a clinician wants to understand functional patterns across vitamins, minerals, amino acids, antioxidants, fatty acids, and related metabolites.</p>
+          </div>
+          <aside class="content-block" aria-labelledby="distinction-title">
+            <h3 id="distinction-title">Clinical distinction</h3>
+            <ul class="comparison-list">
+              <li><strong>Serum testing:</strong> measures concentration in blood at the time of draw.</li>
+              <li><strong>Functional intracellular testing:</strong> evaluates cellular performance patterns related to nutrient availability.</li>
+              <li><strong>Best use:</strong> reviewed alongside symptoms, medications, history, and conventional labs by a licensed clinician.</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="container disclosure" aria-labelledby="disclosure-title">
+        <h2 id="disclosure-title">Disclosure</h2>
+        <p>AIStill.ai may receive a referral fee for SpectraCell panel orders and Thorne product purchases. Recommendations are generated solely from your test data. This platform does not provide medical diagnoses or replace your physician.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; <span id="year"></span> AIStill.ai. Nutritional Intelligence Hub v1.</p>
+      </div>
+    </footer>
+  </div>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

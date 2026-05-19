@@ -1,0 +1,60 @@
+/*
+  AIStill.ai — Nutritional Intelligence Hub
+  Tier 2: AI Results Interpretation
+  v1.0 | Built for Cloudflare Pages + Workers
+  Auth integration point: search "AUTH STUB" for drop-in hooks
+*/
+
+:root {
+  /* Color */
+  --color-bg: #F7F8FA;
+  --color-surface: #FFFFFF;
+  --color-border: #E2E6ED;
+  --color-text-primary: #1A1F2E;
+  --color-text-secondary: #4A5568;
+  --color-text-muted: #5F6B7A;
+  --color-accent: #2563EB;
+  --color-accent-light: #EFF6FF;
+  --color-warning: #D97706;
+  --color-warning-light: #FFFBEB;
+  --color-success: #059669;
+  --color-success-light: #ECFDF5;
+  --color-caution: #DC2626;
+  --color-caution-light: #FEF2F2;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.05), 0 4px 6px rgba(0,0,0,0.03);
+}
