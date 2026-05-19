@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AIStill — AI Infrastructure for Clinical & Medical Education Intelligence</title>
-  <meta name="description" content="AIStill builds production-ready AI infrastructure for clinical and medical education intelligence with scalable, accelerated workflows." />
+  <title>AIStill - Clinical and Medical Education Intelligence</title>
+  <meta name="description" content="AIStill builds practical AI tools for clinical operations, medical education, and nutrition interpretation workflows." />
   <style>
     :root {
       --bg: #f8fafc;
@@ -21,6 +21,8 @@
     }
 
     * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -47,7 +49,7 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 44px;
-      gap: 12px;
+      gap: 18px;
       flex-wrap: wrap;
     }
 
@@ -57,52 +59,72 @@
       height: auto;
     }
 
-    .top-actions {
+    .nav-list {
       display: inline-flex;
-      gap: 10px;
       align-items: center;
+      gap: 16px;
       flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      list-style: none;
     }
 
-    .badge,
-    .nav-pill {
+    .nav-list a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-list a:hover { color: var(--primary-dark); }
+
+    .eyebrow {
       display: inline-flex;
       align-items: center;
+      width: fit-content;
+      border: 1px solid rgba(37, 99, 235, 0.25);
       border-radius: 999px;
+      padding: 8px 12px;
+      color: #1e40af;
+      background: rgba(37, 99, 235, 0.07);
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      text-decoration: none;
-      padding: 8px 12px;
-    }
-
-    .badge {
-      border: 1px solid rgba(37, 99, 235, 0.25);
-      color: #1e40af;
-      background: rgba(37, 99, 235, 0.07);
-    }
-
-    .nav-pill {
-      color: #065f46;
-      border: 1px solid rgba(22, 163, 74, 0.28);
-      background: rgba(22, 163, 74, 0.1);
     }
 
     .hero {
       display: grid;
-      grid-template-columns: 1.15fr .85fr;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.42fr);
       gap: 24px;
       align-items: stretch;
     }
 
     .hero-panel,
-    .hero-side {
+    .hero-note,
+    .card,
+    .product-card,
+    .credibility-panel,
+    .founder,
+    .contact-panel {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 34px;
+    }
+
+    .hero-panel { padding: 34px; }
+
+    .hero-note {
+      display: grid;
+      align-content: center;
+      gap: 12px;
+      padding: 28px;
+    }
+
+    .hero-note strong {
+      display: block;
+      font-size: 1.05rem;
     }
 
     h1 {
@@ -116,7 +138,7 @@
       margin: 0;
       color: var(--muted);
       font-size: 1.1rem;
-      max-width: 62ch;
+      max-width: 66ch;
     }
 
     .cta {
@@ -151,32 +173,6 @@
       border-color: var(--border);
     }
 
-    .hero-side h2 {
-      margin: 0 0 14px;
-      font-size: 1.05rem;
-    }
-
-    .stats {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 12px;
-    }
-
-    .stats li {
-      border: 1px solid var(--border);
-      background: var(--surface-soft);
-      border-radius: 12px;
-      padding: 12px 14px;
-    }
-
-    .stats strong {
-      display: block;
-      font-size: 1.05rem;
-      letter-spacing: -0.01em;
-    }
-
     main { padding-bottom: 56px; }
 
     section + section { margin-top: 44px; }
@@ -189,11 +185,22 @@
       margin-bottom: 16px;
     }
 
+    .section-head p {
+      max-width: 58ch;
+    }
+
     h2 {
       margin: 0;
       font-size: 1.5rem;
       letter-spacing: -0.01em;
     }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+    }
+
+    p { margin: 0; color: var(--muted); }
 
     .grid {
       display: grid;
@@ -201,34 +208,59 @@
       gap: 16px;
     }
 
-    .card {
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: var(--surface);
-      padding: 18px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    .card,
+    .product-card,
+    .contact-panel {
+      padding: 20px;
     }
 
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 1.05rem;
+    .pillar-example {
+      margin-top: 14px;
+      border-left: 4px solid rgba(37, 99, 235, 0.4);
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: #1e293b;
+      background: var(--surface-soft);
+      font-size: 0.95rem;
     }
 
-    p { margin: 0; color: var(--muted); }
-
-    .inception {
-      border: 1px solid rgba(118, 185, 0, 0.42);
-      background: linear-gradient(120deg, rgba(241, 245, 249, 0.84), rgba(236, 253, 245, 0.72)), #fff;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
     }
 
-    .inception-member {
+    .product-kicker {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 12px;
+      border-radius: 999px;
+      padding: 6px 10px;
+      color: #065f46;
+      background: rgba(22, 163, 74, 0.1);
+      border: 1px solid rgba(22, 163, 74, 0.28);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .product-card ul {
+      margin: 14px 0 0;
+      padding-left: 20px;
+      color: #1e293b;
+    }
+
+    .product-card li + li { margin-top: 8px; }
+
+    .credibility-panel {
       display: grid;
       grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
       gap: 26px;
       align-items: center;
+      border-color: rgba(118, 185, 0, 0.42);
+      background: linear-gradient(120deg, rgba(241, 245, 249, 0.84), rgba(236, 253, 245, 0.72)), #fff;
+      padding: 24px;
     }
 
     .inception-badge {
@@ -237,20 +269,19 @@
       height: auto;
     }
 
-    .inception ul {
-      margin: 10px 0 0;
-      padding-left: 20px;
-      color: #1e293b;
+    .founder {
+      margin-top: 16px;
+      padding: 24px;
     }
 
-    .inception li + li { margin-top: 8px; }
+    .founder p + p { margin-top: 12px; }
 
-    .founder {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    .contact-panel {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     footer {
@@ -264,70 +295,71 @@
       margin-top: 8px;
       font-size: 0.8rem;
       line-height: 1.45;
-      color: #94a3b8;
+      color: #64748b;
     }
 
     @media (max-width: 900px) {
       .hero,
-      .grid { grid-template-columns: 1fr; }
+      .grid,
+      .product-grid,
+      .credibility-panel { grid-template-columns: 1fr; }
 
       .hero-panel,
-      .hero-side { padding: 24px; }
+      .hero-note,
+      .founder,
+      .credibility-panel { padding: 24px; }
 
       .topbar { margin-bottom: 26px; }
 
       .brand img { width: min(240px, 70vw); }
 
-      .inception-member { grid-template-columns: 1fr; }
+      .section-head {
+        display: block;
+      }
+
+      .section-head p { margin-top: 8px; }
 
       .inception-badge { width: min(210px, 100%); }
     }
   </style>
 </head>
 <body>
-  <header>
+  <header id="home">
     <div class="wrap">
       <div class="topbar">
         <div class="brand">
           <img src="assets/aistill-logo.svg" alt="AIStill" />
         </div>
-        <div class="top-actions">
-          <span class="badge">Clinical AI Infrastructure</span>
-          <a class="nav-pill" href="nutritional-hub/index.html">Nutritional Intelligence Hub</a>
-          <a class="nav-pill" href="nutrition.html">Nutrition Intelligence Lab</a>
-        </div>
+        <nav aria-label="Primary navigation">
+          <ul class="nav-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
       </div>
 
       <div class="hero">
         <section class="hero-panel" aria-labelledby="hero-title">
-          <h1 id="hero-title">Clinical and education intelligence engineered for deployment.</h1>
+          <span class="eyebrow">Clinical AI Infrastructure</span>
+          <h1 id="hero-title">AI tools for clinical teams, medical educators, and nutrition interpretation.</h1>
           <p class="lead">
-            AIStill develops production-ready intelligence workflows that transform unstructured clinical and medical
-            education data into actionable outputs for care teams, training programs, and research operations.
+            AIStill builds practical intelligence systems that turn complex health and education data into clear,
+            reviewable outputs for clinicians, administrators, educators, and patients working with licensed providers.
           </p>
           <div class="cta">
-            <a class="btn btn-primary" href="nutritional-hub/index.html">Open Nutritional Intelligence Hub</a>
-            <a class="btn btn-secondary" href="mailto:hello@aistill.ai?subject=AIStill%20Platform%20Inquiry">Request a platform briefing</a>
-            <a class="btn btn-secondary" href="#inception-membership">See NVIDIA Inception membership</a>
+            <a class="btn btn-primary" href="#products">Explore products</a>
+            <a class="btn btn-secondary" href="mailto:hello@aistill.ai?subject=AIStill%20Platform%20Inquiry">Request a briefing</a>
           </div>
         </section>
 
-        <aside class="hero-side" aria-label="Platform highlights">
-          <h2>Platform Highlights</h2>
-          <ul class="stats">
-            <li>
-              <strong>Multi-source data orchestration</strong>
-              Ingests notes, curricula, and outcomes data into standardized intelligence layers.
-            </li>
-            <li>
-              <strong>Clinician-aligned workflow design</strong>
-              Human-centered outputs focused on trust, utility, and operational clarity.
-            </li>
-            <li>
-              <strong>Accelerated compute posture</strong>
-              Architecture optimized for modern low-latency inference stacks.
-            </li>
-          </ul>
+        <aside class="hero-note" aria-label="AIStill focus">
+          <strong>Built for real clinical workflows.</strong>
+          <p>
+            The goal is not to replace professional judgment. It is to organize complex information so decisions,
+            teaching, and follow-up conversations start from a clearer place.
+          </p>
         </aside>
       </div>
     </div>
@@ -335,94 +367,111 @@
 
   <main>
     <div class="wrap">
-      <section id="what-we-build" aria-labelledby="build-title">
+      <section id="build" aria-labelledby="build-title">
         <div class="section-head">
           <h2 id="build-title">What We Build</h2>
+          <p>Three connected pillars: organize clinical data, support medical education, and prepare AI workflows for responsible use.</p>
         </div>
         <div class="grid">
           <article class="card">
-            <h3>Clinical Intelligence Systems</h3>
-            <p>
-              Automated structuring, summarization, and retrieval workflows that support faster, more consistent clinical decisions.
-            </p>
+            <h3>Clinical Data Interpretation</h3>
+            <p>We turn dense reports, notes, and structured results into plain-language summaries that can be reviewed by care teams.</p>
+            <p class="pillar-example"><strong>Outcome:</strong> a patient-facing report with findings, context, and provider talking points.</p>
           </article>
           <article class="card">
-            <h3>Medical Education AI</h3>
-            <p>
-              AI copilots and analytics for osteopathic and medical training environments with quality-focused oversight.
-            </p>
+            <h3>Medical Education Intelligence</h3>
+            <p>We help training programs organize curriculum, learner performance, and clinical teaching material into usable insight.</p>
+            <p class="pillar-example"><strong>Outcome:</strong> clearer feedback loops for educators, learners, and program leadership.</p>
           </article>
           <article class="card">
-            <h3>Operational AI Infrastructure</h3>
-            <p>
-              Secure, scalable pipelines designed to move from prototype to production deployment without major rework.
-            </p>
+            <h3>Responsible AI Workflow Design</h3>
+            <p>We design tools that keep clinicians in the loop, make outputs easy to audit, and avoid unsupported medical claims.</p>
+            <p class="pillar-example"><strong>Outcome:</strong> AI-assisted workflows that are easier to validate before clinical use.</p>
           </article>
         </div>
       </section>
 
-      <section id="inception-membership" aria-labelledby="inception-title">
+      <section id="products" aria-labelledby="products-title">
         <div class="section-head">
-          <h2 id="inception-title">NVIDIA Inception Program Member</h2>
+          <h2 id="products-title">Products and Tools</h2>
+          <p>The Hub and the Lab are separate on purpose: one is a patient/provider interpretation tool, the other is a broader research and education workspace.</p>
         </div>
-        <div class="inception">
-          <div class="inception-member">
-            <img class="inception-badge" src="assets/nvidia-inception-program-badge-rgb-for-screen.svg" alt="NVIDIA Inception Program" />
-            <div>
-              <p>
-                AIStill is a member of the NVIDIA Inception program, aligning its clinical and medical education AI
-                infrastructure roadmap with accelerated inference, responsible deployment, and ecosystem collaboration.
-              </p>
-              <ul>
-                <li>Healthcare and medical education vertical focus with measurable workflow impact targets.</li>
-                <li>Roadmap aligned with GPU-accelerated inference, scalable model serving, and rapid iteration cycles.</li>
-                <li>Partner-ready operating model for clinical validation, responsible AI operations, and implementation planning.</li>
-              </ul>
+        <div class="product-grid">
+          <article class="product-card">
+            <span class="product-kicker">Patient + Provider Tool</span>
+            <h3>Nutritional Intelligence Hub</h3>
+            <p>
+              Interprets SpectraCell Micronutrient Test results into a structured, plain-language report for review with a licensed healthcare provider.
+            </p>
+            <ul>
+              <li>Best for: patients and clinicians reviewing micronutrient panels.</li>
+              <li>Current scope: AI interpretation only; no supplement product recommendations.</li>
+            </ul>
+            <div class="cta">
+              <a class="btn btn-primary" href="nutritional-hub/index.html">Open the Hub</a>
             </div>
-          </div>
+          </article>
+          <article class="product-card">
+            <span class="product-kicker">Research + Education Workspace</span>
+            <h3>Nutrition Intelligence Lab</h3>
+            <p>
+              A broader nutrition workspace for evidence mapping, intake experiments, and educational resource development.
+            </p>
+            <ul>
+              <li>Best for: internal prototyping, education workflows, and future partner resources.</li>
+              <li>Current scope: nutrition-focused workspace separate from SpectraCell report interpretation.</li>
+            </ul>
+            <div class="cta">
+              <a class="btn btn-secondary" href="nutrition.html">Open the Lab</a>
+            </div>
+          </article>
         </div>
       </section>
 
-      <section aria-labelledby="nutrition-title">
+      <section id="about" aria-labelledby="credibility-title">
         <div class="section-head">
-          <h2 id="nutrition-title">Nutritional Intelligence Hub</h2>
+          <h2 id="credibility-title">Credibility</h2>
+          <p>AIStill is built from clinical practice, medical education, and an emphasis on responsible AI implementation.</p>
         </div>
-        <div class="card">
-          <p>
-            Upload or paste SpectraCell Micronutrient Test results and receive a structured AI interpretation report
-            for review with a licensed healthcare provider.
-          </p>
-          <div class="cta" style="margin-top:14px">
-            <a class="btn btn-primary" href="nutritional-hub/index.html">Interpret My Results</a>
-            <a class="btn btn-secondary" href="nutrition.html">Open Nutrition Intelligence Lab</a>
+        <div class="credibility-panel">
+          <img class="inception-badge" src="assets/nvidia-inception-program-badge-rgb-for-screen.svg" alt="NVIDIA Inception Program" />
+          <div>
+            <h3>NVIDIA Inception Program Member</h3>
+            <p>
+              AIStill is a member of the NVIDIA Inception program. This supports the company's work on AI systems that can scale
+              responsibly as clinical and education use cases mature.
+            </p>
           </div>
-        </div>
-      </section>
-
-      <section aria-labelledby="founder-title">
-        <div class="section-head">
-          <h2 id="founder-title">Founder</h2>
         </div>
         <div class="founder">
+          <h3>Founder</h3>
           <p>
-            <strong>Patrick Barry, D.O.</strong> is a double board-certified physician and Associate Professor focused on
-            applying artificial intelligence to clinical and medical education workflows.
+            <strong>Patrick Barry, D.O.</strong> is a double board-certified physician and Associate Professor focused on applying artificial intelligence to clinical and medical education workflows.
+          </p>
+          <p>
+            Dr. Barry's clinical background spans patient care, teaching, and the practical realities of translating complex information into decisions people can act on. His work with AIStill grew from a simple need: clinicians and educators do not need more noise, they need clearer systems for interpreting the data already in front of them.
+          </p>
+          <p>
+            AIStill is built around that principle: AI should support judgment, improve communication, and keep licensed professionals at the center of clinical decision-making.
           </p>
         </div>
       </section>
 
-      <section aria-labelledby="contact-title">
+      <section id="contact" aria-labelledby="contact-title">
         <div class="section-head">
           <h2 id="contact-title">Contact</h2>
         </div>
-        <p>Email: <a href="mailto:hello@aistill.ai">hello@aistill.ai</a></p>
+        <div class="contact-panel">
+          <p>For product questions, partnership discussions, or clinical education workflows, contact AIStill directly.</p>
+          <a class="btn btn-primary" href="mailto:hello@aistill.ai">hello@aistill.ai</a>
+        </div>
       </section>
     </div>
   </main>
 
   <footer>
     <div class="wrap">
-      © <span id="y"></span> AIStill. All rights reserved.
+      &copy; <span id="y"></span> AIStill. All rights reserved.
       <p class="trademark-note">NVIDIA, the NVIDIA logo, and NVIDIA Inception are trademarks and/or registered trademarks of NVIDIA Corporation in the U.S. and other countries.</p>
     </div>
   </footer>
