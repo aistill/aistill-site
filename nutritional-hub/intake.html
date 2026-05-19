@@ -1,0 +1,145 @@
+<!--
+  AIStill.ai — Nutritional Intelligence Hub
+  Tier 2: AI Results Interpretation
+  v1.0 | Built for Cloudflare Pages + Workers
+  Auth integration point: search "AUTH STUB" for drop-in hooks
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Results Intake | Nutritional Intelligence Hub</title>
+  <meta name="description" content="Paste or upload SpectraCell Micronutrient Test results for AI interpretation." />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/hub.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="container nav" aria-label="Nutritional Intelligence Hub navigation">
+        <a class="brand-link" href="index.html">Nutritional Intelligence Hub</a>
+        <nav class="nav-links" aria-label="Hub pages">
+          <a class="nav-link" href="index.html">Hub</a>
+          <a class="nav-link" href="intake.html" aria-current="page">Interpret Results</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="page-intro">
+        <div class="container">
+          <p class="eyebrow">Results Intake</p>
+          <h1 class="page-title">Share your SpectraCell MNT results for interpretation.</h1>
+          <p class="page-subhead">Use pasted panel text when available. PDF upload is supported with best-effort text extraction in the browser before the request is sent to the Worker.</p>
+        </div>
+      </section>
+
+      <section class="container form-panel" aria-labelledby="intake-form-title">
+        <h2 id="intake-form-title">Panel input</h2>
+        <form id="intake-form" class="form-layout" novalidate>
+          <fieldset class="field">
+            <legend class="field-label">Choose input method</legend>
+            <div class="method-toggle" role="radiogroup" aria-label="Input method">
+              <label class="method-option" for="method-paste">
+                <input id="method-paste" type="radio" name="inputMethod" value="paste" checked />
+                <strong>Paste Results</strong>
+                <span>Recommended when your report text is selectable.</span>
+              </label>
+              <label class="method-option" for="method-pdf">
+                <input id="method-pdf" type="radio" name="inputMethod" value="pdf" />
+                <strong>Upload PDF</strong>
+                <span>PDF only, 10MB maximum.</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div id="paste-panel" class="field full">
+            <label for="raw-results">SpectraCell result text</label>
+            <textarea id="raw-results" class="mono-input" name="rawResults" placeholder="Example:
+SpectraCell Micronutrient Test
+Nutrient               Result        Reference Range
+Vitamin B12            12%           &gt; 14%
+Magnesium              28%           &gt; 32%
+Spectrox               41%           &gt; 40%"></textarea>
+            <p class="hint">Strip patient identifiers before submitting whenever possible.</p>
+          </div>
+
+          <div id="pdf-panel" class="field full" hidden>
+            <label for="pdf-file">Upload SpectraCell PDF</label>
+            <input id="pdf-file" name="pdfFile" type="file" accept="application/pdf,.pdf" aria-describedby="pdf-hint" />
+            <p id="pdf-hint" class="hint">Maximum file size: 10MB. The browser extracts text before sending the request.</p>
+          </div>
+
+          <details class="context-panel">
+            <summary>Help the AI understand your situation</summary>
+            <div class="context-inner field-grid">
+              <div class="field">
+                <label for="age-range">Age range</label>
+                <select id="age-range" name="ageRange">
+                  <option value="">Prefer not to say</option>
+                  <option value="20s">20s</option>
+                  <option value="30s">30s</option>
+                  <option value="40s">40s</option>
+                  <option value="50s">50s</option>
+                  <option value="60s+">60s+</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="primary-concern">Primary health concern</label>
+                <select id="primary-concern" name="primaryConcern">
+                  <option value="">Not specified</option>
+                  <option value="Energy">Energy</option>
+                  <option value="Cardiovascular">Cardiovascular</option>
+                  <option value="Weight">Weight</option>
+                  <option value="Immune">Immune</option>
+                  <option value="Mental Health">Mental Health</option>
+                  <option value="General Wellness">General Wellness</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="supplementing">Are you currently supplementing?</label>
+                <select id="supplementing" name="supplementing">
+                  <option value="">Not specified</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                  <option value="some">Some</option>
+                </select>
+              </div>
+              <div class="field full">
+                <label for="medications">Current medications</label>
+                <textarea id="medications" name="medications" placeholder="Optional. Include only what you are comfortable sharing."></textarea>
+              </div>
+            </div>
+          </details>
+
+          <div class="disclaimer-inline" role="note">
+            This analysis is for informational purposes only. It is not a medical diagnosis. Review all findings with your healthcare provider.
+          </div>
+
+          <div id="form-error" class="form-error" role="alert" hidden></div>
+
+          <div class="submit-row">
+            <button id="submit-button" class="button" type="submit">Analyze My Results</button>
+            <span id="loading-state" class="loading-state" hidden>
+              <span class="spinner" aria-hidden="true"></span>
+              <span>Analyzing your panel...</span>
+            </span>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>Session-only v1. No account, tracking, or persistent storage is active.</p>
+      </div>
+    </footer>
+  </div>
+  <script src="js/session.js" defer></script>
+  <script src="js/ai-client.js" defer></script>
+  <script src="js/intake.js" defer></script>
+</body>
+</html>

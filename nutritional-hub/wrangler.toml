@@ -1,0 +1,19 @@
+# AIStill.ai — Nutritional Intelligence Hub
+# Tier 2: AI Results Interpretation
+# v1.0 | Built for Cloudflare Pages + Workers
+# Auth integration point: search "AUTH STUB" for drop-in hooks
+
+name = "nih-interpret"
+main = "nutritional-hub/workers/interpret.js"
+compatibility_date = "2025-01-01"
+
+[vars]
+AI_ENDPOINT = ""
+AI_MODEL_ID = ""
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = ""
+
+[triggers]
+routes = ["aistill.ai/api/interpret"]

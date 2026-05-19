@@ -1,0 +1,95 @@
+<!--
+  AIStill.ai — Nutritional Intelligence Hub
+  Tier 2: AI Results Interpretation
+  v1.0 | Built for Cloudflare Pages + Workers
+  Auth integration point: search "AUTH STUB" for drop-in hooks
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nutritional Intelligence Report | AIStill.ai</title>
+  <meta name="description" content="AI-generated SpectraCell Micronutrient Test interpretation report." />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/hub.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header no-print">
+      <div class="container nav" aria-label="Nutritional Intelligence Hub navigation">
+        <a class="brand-link" href="index.html">Nutritional Intelligence Hub</a>
+        <nav class="nav-links" aria-label="Hub pages">
+          <a class="nav-link" href="index.html">Hub</a>
+          <a class="nav-link" href="intake.html">New Interpretation</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="report-header" role="banner">
+      <div class="container report-header-inner">
+        <div>
+          <h1>Nutritional Intelligence Report</h1>
+          <p id="generated-time" class="generated-time">Generated timestamp unavailable</p>
+        </div>
+        <span class="diagnosis-badge">This is not a medical diagnosis</span>
+      </div>
+    </div>
+
+    <main class="main-content">
+      <div class="container report-stack">
+        <section id="summary-section" class="summary-card" aria-labelledby="summary-title">
+          <h2 id="summary-title">Summary</h2>
+          <span id="overall-status" class="status-pill adequate">Adequate</span>
+          <p id="summary-text"></p>
+        </section>
+
+        <section aria-labelledby="deficiencies-title">
+          <div class="section-header">
+            <h2 id="deficiencies-title">Deficiencies and Borderline Findings</h2>
+            <p>Findings are sorted by severity and should be reviewed with a licensed healthcare provider.</p>
+          </div>
+          <div id="deficiency-list" class="report-grid"></div>
+        </section>
+
+        <section id="patterns-section" aria-labelledby="patterns-title" hidden>
+          <div class="section-header">
+            <h2 id="patterns-title">What Your Panel Suggests as a Pattern</h2>
+          </div>
+          <div id="patterns-list" class="report-grid"></div>
+        </section>
+
+        <details id="adequate-details" class="adequate-details">
+          <summary id="adequate-summary">Nutrients Within Functional Range (0)</summary>
+          <div class="adequate-inner">
+            <ul id="adequate-list" class="chip-list"></ul>
+          </div>
+        </details>
+
+        <section class="talking-points" aria-labelledby="talking-points-title">
+          <h2 id="talking-points-title">Bring This to Your Next Appointment</h2>
+          <ol id="talking-points-list"></ol>
+        </section>
+
+        <section class="action-row no-print" aria-labelledby="actions-title">
+          <h2 id="actions-title" class="sr-only">Report actions</h2>
+          <button class="button-secondary" type="button" aria-disabled="true" title="Coming soon — share this report with your provider">Export PDF Summary</button>
+          <a class="button-secondary" href="https://www.spectracell.com/" target="_blank" rel="noopener noreferrer">Order Follow-Up Panel</a>
+          <div class="next-steps">
+            <h3>What to do next</h3>
+            <p>Review this interpretation with your physician or qualified clinician. Tier 3 supplement guidance is coming later and will be driven by these results, but it is intentionally not part of v1.</p>
+          </div>
+        </section>
+
+        <footer class="persistent-disclaimer" aria-labelledby="report-disclaimer-title">
+          <h2 id="report-disclaimer-title">Important disclaimer</h2>
+          <p id="report-disclaimer"></p>
+        </footer>
+      </div>
+    </main>
+  </div>
+  <script src="js/session.js" defer></script>
+  <script src="js/report.js" defer></script>
+</body>
+</html>
