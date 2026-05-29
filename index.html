@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AIStill - Clinical and Medical Education Intelligence</title>
-  <meta name="description" content="AIStill builds practical AI tools for clinical operations, medical education, and nutrition interpretation workflows." />
+  <title>AIStill - Osteopathic AI Infrastructure</title>
+  <meta name="description" content="AIStill builds OsteopathicAI-aligned tools for whole-person clinical interpretation, medical education, and responsible AI workflows." />
   <style>
     :root {
       --bg: #f8fafc;
@@ -208,10 +208,42 @@
       gap: 16px;
     }
 
+    .ecosystem-steps {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
     .card,
     .product-card,
-    .contact-panel {
+    .contact-panel,
+    .step-card {
       padding: 20px;
+    }
+
+    .step-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .step-card span {
+      display: inline-flex;
+      margin-bottom: 12px;
+      color: var(--primary-dark);
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .source-note {
+      margin-top: 16px;
+      border-left: 4px solid rgba(22, 163, 74, 0.45);
+      border-radius: 8px;
+      padding: 12px 14px;
+      background: rgba(236, 253, 245, 0.72);
+      color: #14532d;
+      font-size: 0.96rem;
     }
 
     .pillar-example {
@@ -284,6 +316,8 @@
       flex-wrap: wrap;
     }
 
+    .cta.compact { margin-top: 0; }
+
     footer {
       border-top: 1px solid var(--border);
       padding: 26px 0;
@@ -301,6 +335,7 @@
     @media (max-width: 900px) {
       .hero,
       .grid,
+      .ecosystem-steps,
       .product-grid,
       .credibility-panel { grid-template-columns: 1fr; }
 
@@ -333,6 +368,8 @@
         <nav aria-label="Primary navigation">
           <ul class="nav-list">
             <li><a href="#home">Home</a></li>
+            <li><a href="#approach">Approach</a></li>
+            <li><a href="#ecosystem">Ecosystem</a></li>
             <li><a href="#products">Products</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -342,23 +379,24 @@
 
       <div class="hero">
         <section class="hero-panel" aria-labelledby="hero-title">
-          <span class="eyebrow">Clinical AI Infrastructure</span>
-          <h1 id="hero-title">AI tools for clinical teams, medical educators, and nutrition interpretation.</h1>
+          <span class="eyebrow">OsteopathicAI Infrastructure</span>
+          <h1 id="hero-title">AI systems built around whole-person care, clinical judgment, and medical education.</h1>
           <p class="lead">
-            AIStill builds practical intelligence systems that turn complex health and education data into clear,
-            reviewable outputs for clinicians, administrators, educators, and patients working with licensed providers.
+            AIStill is building the osteopathic approach to AI: practical intelligence systems that turn complex
+            clinical and education data into clear, reviewable outputs while keeping context, relationship, and
+            licensed professional judgment at the center.
           </p>
           <div class="cta">
             <a class="btn btn-primary" href="#products">Explore products</a>
-            <a class="btn btn-secondary" href="mailto:hello@aistill.ai?subject=AIStill%20Platform%20Inquiry">Request a briefing</a>
+            <a class="btn btn-secondary" href="#approach">Why OsteopathicAI</a>
           </div>
         </section>
 
-        <aside class="hero-note" aria-label="AIStill focus">
-          <strong>Built for real clinical workflows.</strong>
+        <aside class="hero-note" aria-label="AIStill osteopathic focus">
+          <strong>Founded by an osteopathic physician and medical educator.</strong>
           <p>
-            The goal is not to replace professional judgment. It is to organize complex information so decisions,
-            teaching, and follow-up conversations start from a clearer place.
+            The goal is not to replace professional judgment. It is to help clinicians, educators, learners, and
+            patients see the pattern without losing the person.
           </p>
         </aside>
       </div>
@@ -367,20 +405,90 @@
 
   <main>
     <div class="wrap">
-      <section id="build" aria-labelledby="build-title">
+      <section id="approach" aria-labelledby="approach-title">
         <div class="section-head">
-          <h2 id="build-title">What We Build</h2>
-          <p>Three connected pillars: organize clinical data, support medical education, and prepare AI workflows for responsible use.</p>
+          <h2 id="approach-title">The OsteopathicAI Approach</h2>
+          <p>AIStill treats osteopathic identity as a design constraint: AI should augment the physician-patient relationship, not flatten care into isolated data points.</p>
         </div>
         <div class="grid">
           <article class="card">
-            <h3>Clinical Data Interpretation</h3>
-            <p>We turn dense reports, notes, and structured results into plain-language summaries that can be reviewed by care teams.</p>
-            <p class="pillar-example"><strong>Outcome:</strong> a patient-facing report with findings, context, and provider talking points.</p>
+            <h3>Whole-Person Context</h3>
+            <p>Outputs are designed to connect findings with symptoms, lifestyle, medications, goals, and the clinical story around the patient.</p>
           </article>
           <article class="card">
-            <h3>Medical Education Intelligence</h3>
-            <p>We help training programs organize curriculum, learner performance, and clinical teaching material into usable insight.</p>
+            <h3>Relationship-Centered Care</h3>
+            <p>Reports and teaching tools are written to support better conversations between patients, clinicians, learners, and care teams.</p>
+          </article>
+          <article class="card">
+            <h3>Clinician Accountability</h3>
+            <p>Consequential outputs are built for review, correction, and override by appropriately credentialed humans with responsibility for decisions.</p>
+          </article>
+          <article class="card">
+            <h3>Transparent Reasoning</h3>
+            <p>AIStill emphasizes limits, uncertainty, source context, and plain-language explanations so outputs can be challenged instead of passively accepted.</p>
+          </article>
+          <article class="card">
+            <h3>Evidence Proportional to Risk</h3>
+            <p>Claims should match the evidence, with stronger validation and monitoring as workflows move closer to clinical action.</p>
+          </article>
+          <article class="card">
+            <h3>Osteopathic Distinctiveness</h3>
+            <p>The standard is broader than OMM alone: it includes contextual medicine, lifestyle medicine, communication, education, and whole-person care.</p>
+          </article>
+        </div>
+        <p class="source-note">
+          This framing aligns with the emerging OsteopathicAI definition work: AI should augment, not replace, osteopathic professional judgment and whole-person care.
+        </p>
+      </section>
+
+      <section id="ecosystem" aria-labelledby="ecosystem-title">
+        <div class="section-head">
+          <h2 id="ecosystem-title">The Ecosystem We Are Building</h2>
+          <p>Each product is a layer in a larger osteopathic care and learning loop, moving from context to interpretation to supervised action.</p>
+        </div>
+        <div class="ecosystem-steps">
+          <article class="step-card">
+            <span>01</span>
+            <h3>Assess</h3>
+            <p>Capture labs, symptoms, medications, lifestyle, goals, and clinical context before interpretation begins.</p>
+          </article>
+          <article class="step-card">
+            <span>02</span>
+            <h3>Understand</h3>
+            <p>Turn dense health data into pattern-aware summaries that separate findings, uncertainty, and next questions.</p>
+          </article>
+          <article class="step-card">
+            <span>03</span>
+            <h3>Discuss</h3>
+            <p>Prepare patient and provider talking points for shared decision-making and relationship-centered follow-up.</p>
+          </article>
+          <article class="step-card">
+            <span>04</span>
+            <h3>Act</h3>
+            <p>Support supervised planning without unsupported diagnosis, medication changes, product claims, or dosage advice.</p>
+          </article>
+          <article class="step-card">
+            <span>05</span>
+            <h3>Learn</h3>
+            <p>Use de-identified insights for education, quality improvement, research, and better osteopathic training workflows.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="build" aria-labelledby="build-title">
+        <div class="section-head">
+          <h2 id="build-title">What We Build</h2>
+          <p>Three connected pillars: interpret clinical data in context, support osteopathic medical education, and prepare AI workflows for responsible use.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3>Whole-Person Data Interpretation</h3>
+            <p>We turn dense reports, notes, and structured results into plain-language summaries that preserve patient context.</p>
+            <p class="pillar-example"><strong>Outcome:</strong> a patient-facing report with findings, whole-person context, and provider talking points.</p>
+          </article>
+          <article class="card">
+            <h3>Osteopathic Education Intelligence</h3>
+            <p>We help training programs organize curriculum, learner performance, clinical reasoning, and teaching material into usable insight.</p>
             <p class="pillar-example"><strong>Outcome:</strong> clearer feedback loops for educators, learners, and program leadership.</p>
           </article>
           <article class="card">
@@ -394,18 +502,18 @@
       <section id="products" aria-labelledby="products-title">
         <div class="section-head">
           <h2 id="products-title">Products and Tools</h2>
-          <p>The Hub and the Lab are separate on purpose: one is a patient/provider interpretation tool, the other is a broader research and education workspace.</p>
+          <p>The Hub and the Lab are separate on purpose: one proves the clinical interpretation layer, the other supports research, education, and partner workflow development.</p>
         </div>
         <div class="product-grid">
           <article class="product-card">
             <span class="product-kicker">Patient + Provider Tool</span>
             <h3>Nutritional Intelligence Hub</h3>
             <p>
-              Interprets SpectraCell Micronutrient Test results into a structured, plain-language report for review with a licensed healthcare provider.
+              Interprets SpectraCell Micronutrient Test results in the context of the person: symptoms, medications, goals, lifestyle, and provider review.
             </p>
             <ul>
               <li>Best for: patients and clinicians reviewing micronutrient panels.</li>
-              <li>Current scope: AI interpretation only; no supplement product recommendations.</li>
+              <li>Current scope: pattern-aware interpretation only; no supplement product recommendations.</li>
             </ul>
             <div class="cta">
               <a class="btn btn-primary" href="nutritional-hub/index.html">Open the Hub</a>
@@ -415,10 +523,10 @@
             <span class="product-kicker">Research + Education Workspace</span>
             <h3>Nutrition Intelligence Lab</h3>
             <p>
-              A broader nutrition workspace for evidence mapping, intake experiments, and educational resource development.
+              A broader workspace for evidence mapping, structured intake experiments, whole-person nutrition education, and future partner resources.
             </p>
             <ul>
-              <li>Best for: internal prototyping, education workflows, and future partner resources.</li>
+              <li>Best for: internal prototyping, education workflows, osteopathic pilots, and partner resources.</li>
               <li>Current scope: nutrition-focused workspace separate from SpectraCell report interpretation.</li>
             </ul>
             <div class="cta">
@@ -431,7 +539,7 @@
       <section id="about" aria-labelledby="credibility-title">
         <div class="section-head">
           <h2 id="credibility-title">Credibility</h2>
-          <p>AIStill is built from clinical practice, medical education, and an emphasis on responsible AI implementation.</p>
+          <p>AIStill is built from osteopathic clinical practice, medical education, and an emphasis on responsible AI implementation.</p>
         </div>
         <div class="credibility-panel">
           <img class="inception-badge" src="assets/nvidia-inception-program-badge-rgb-for-screen.svg" alt="NVIDIA Inception Program" />
@@ -446,7 +554,7 @@
         <div class="founder">
           <h3>Founder</h3>
           <p>
-            <strong>Patrick Barry, D.O.</strong> is a double board-certified physician and Associate Professor focused on applying artificial intelligence to clinical and medical education workflows.
+            <strong>Patrick Barry, D.O.</strong> is a double board-certified osteopathic physician and Associate Professor focused on applying artificial intelligence to clinical and medical education workflows.
           </p>
           <p>
             Dr. Barry's clinical background spans patient care, teaching, and the practical realities of translating complex information into decisions people can act on. His work with AIStill grew from a simple need: clinicians and educators do not need more noise, they need clearer systems for interpreting the data already in front of them.
@@ -462,8 +570,11 @@
           <h2 id="contact-title">Contact</h2>
         </div>
         <div class="contact-panel">
-          <p>For product questions, partnership discussions, or clinical education workflows, contact AIStill directly.</p>
-          <a class="btn btn-primary" href="mailto:hello@aistill.ai">hello@aistill.ai</a>
+          <p>For product questions, osteopathic partner pilots, clinical education workflows, or implementation briefings, contact AIStill directly.</p>
+          <div class="cta compact">
+            <a class="btn btn-primary" href="mailto:hello@aistill.ai?subject=OsteopathicAI%20Pilot%20Inquiry">Partner on a pilot</a>
+            <a class="btn btn-secondary" href="mailto:hello@aistill.ai">hello@aistill.ai</a>
+          </div>
         </div>
       </section>
     </div>
