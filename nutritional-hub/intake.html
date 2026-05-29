@@ -10,7 +10,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Results Intake | Nutritional Intelligence Hub</title>
-  <meta name="description" content="Paste or upload SpectraCell Micronutrient Test results for AI interpretation." />
+  <meta name="description" content="Paste or upload SpectraCell Micronutrient Test results for whole-person AI interpretation." />
   <link rel="stylesheet" href="css/tokens.css" />
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/hub.css" />
@@ -31,8 +31,8 @@
       <section class="page-intro">
         <div class="container">
           <p class="eyebrow">Results Intake</p>
-          <h1 class="page-title">Share your SpectraCell MNT results for interpretation.</h1>
-          <p class="page-subhead">Use pasted panel text when available. PDF upload is supported with best-effort text extraction in the browser before the request is sent to the Worker.</p>
+          <h1 class="page-title">Share your SpectraCell MNT results and whole-person context.</h1>
+          <p class="page-subhead">Use pasted panel text when available. Add optional context so the report can support a better provider conversation, not just a list of numbers.</p>
         </div>
       </section>
 
@@ -73,7 +73,7 @@ Spectrox               41%           &gt; 40%"></textarea>
           </div>
 
           <details class="context-panel">
-            <summary>Help the AI understand your situation</summary>
+            <summary>Help the AI understand your whole-person context</summary>
             <div class="context-inner field-grid">
               <div class="field">
                 <label for="age-range">Age range</label>
@@ -100,6 +100,26 @@ Spectrox               41%           &gt; 40%"></textarea>
                 </select>
               </div>
               <div class="field">
+                <label for="sleep-recovery">Sleep and recovery</label>
+                <select id="sleep-recovery" name="sleepRecovery">
+                  <option value="">Not specified</option>
+                  <option value="restorative">Generally restorative</option>
+                  <option value="inconsistent">Inconsistent</option>
+                  <option value="poor">Poor or interrupted</option>
+                  <option value="shift-work">Shift work or irregular schedule</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="stress-load">Stress load</label>
+                <select id="stress-load" name="stressLoad">
+                  <option value="">Not specified</option>
+                  <option value="low">Low</option>
+                  <option value="moderate">Moderate</option>
+                  <option value="high">High</option>
+                  <option value="variable">Variable</option>
+                </select>
+              </div>
+              <div class="field">
                 <label for="supplementing">Are you currently supplementing?</label>
                 <select id="supplementing" name="supplementing">
                   <option value="">Not specified</option>
@@ -108,15 +128,33 @@ Spectrox               41%           &gt; 40%"></textarea>
                   <option value="some">Some</option>
                 </select>
               </div>
+              <div class="field">
+                <label for="activity-level">Activity level</label>
+                <select id="activity-level" name="activityLevel">
+                  <option value="">Not specified</option>
+                  <option value="sedentary">Mostly sedentary</option>
+                  <option value="light">Light activity</option>
+                  <option value="moderate">Moderate activity</option>
+                  <option value="high">High training load</option>
+                </select>
+              </div>
+              <div class="field full">
+                <label for="nutrition-pattern">Nutrition pattern</label>
+                <textarea id="nutrition-pattern" name="nutritionPattern" placeholder="Optional. Food pattern, dietary restrictions, appetite changes, timing, or consistency."></textarea>
+              </div>
               <div class="field full">
                 <label for="medications">Current medications</label>
                 <textarea id="medications" name="medications" placeholder="Optional. Include only what you are comfortable sharing."></textarea>
+              </div>
+              <div class="field full">
+                <label for="clinician-questions">Questions for your clinician</label>
+                <textarea id="clinician-questions" name="clinicianQuestions" placeholder="Optional. What do you want help understanding when you review this with your provider?"></textarea>
               </div>
             </div>
           </details>
 
           <div class="disclaimer-inline" role="note">
-            This analysis is for informational purposes only. It is not a medical diagnosis. Review all findings with your healthcare provider.
+            This analysis is for informational purposes only. It is not a medical diagnosis. Review all findings and any next steps with your healthcare provider.
           </div>
 
           <div id="form-error" class="form-error" role="alert" hidden></div>

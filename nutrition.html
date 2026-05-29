@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AIStill Nutrition Intelligence Lab</title>
-  <meta name="description" content="AIStill Nutrition Intelligence Lab combines evidence mapping, structured intake, and AI-assisted education workflows for nutrition programs." />
+  <meta name="description" content="AIStill Nutrition Intelligence Lab supports whole-person nutrition workflows, evidence mapping, structured intake, and osteopathic education pilots." />
   <style>
     :root {
       --bg: #f8fafc;
@@ -283,15 +283,15 @@
   <header>
     <div class="wrap">
       <div class="topbar">
-        <a class="crumb" href="index.html">← Back to Main Site</a>
+        <a class="crumb" href="index.html">Back to Main Site</a>
         <a class="quick-link" href="#program-intake">Program Intake</a>
       </div>
 
       <div class="hero">
         <h1>Nutrition Intelligence Lab</h1>
         <p class="lead">
-          A clean, evidence-aware workspace for nutrition and wellness programs: capture participant goals,
-          organize guidance priorities, and share structured next steps with your team.
+          A whole-person, evidence-aware workspace for nutrition and wellness programs: capture participant
+          context, organize guidance priorities, and prototype osteopathic education workflows with your team.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#program-intake">Start Intake</a>
@@ -304,19 +304,42 @@
   <main>
     <div class="wrap">
       <section>
-        <h2>How This Supports Scalable Nutrition Operations</h2>
+        <h2>How This Supports Whole-Person Nutrition Operations</h2>
         <div class="grid">
           <article class="card">
-            <h3>1) Structured intake</h3>
-            <p>Capture participant profile and goals in a single streamlined workflow.</p>
+            <h3>1) Context-rich intake</h3>
+            <p>Capture goals, symptoms, lifestyle, barriers, and care context in a single streamlined workflow.</p>
           </article>
           <article class="card">
-            <h3>2) Team-ready summary</h3>
-            <p>Create a standardized handoff summary for education and follow-up planning.</p>
+            <h3>2) Team-ready interpretation</h3>
+            <p>Create standardized handoff summaries that support educator review, clinician oversight, and follow-up planning.</p>
           </article>
           <article class="card">
-            <h3>3) Consistent communication</h3>
-            <p>Support a repeatable onboarding process with clear consent and contact preferences.</p>
+            <h3>3) Relationship-centered communication</h3>
+            <p>Support repeatable onboarding while keeping consent, patient goals, and practical next conversations visible.</p>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="osteopathic-lab-title">
+        <h2 id="osteopathic-lab-title">Designed for OsteopathicAI Pilots</h2>
+        <p>
+          The Lab is the proving ground for AIStill's broader ecosystem: lower-risk education and operations
+          workflows where teams can refine whole-person intake, evidence mapping, responsible AI review, and
+          de-identified learning before moving toward higher-impact clinical use cases.
+        </p>
+        <div class="grid">
+          <article class="card">
+            <h3>Assess</h3>
+            <p>Structure the health story around the person, not only the panel or program metric.</p>
+          </article>
+          <article class="card">
+            <h3>Teach</h3>
+            <p>Turn cases, research, and participant goals into practical learning resources for clinicians and learners.</p>
+          </article>
+          <article class="card">
+            <h3>Improve</h3>
+            <p>Use responsible, de-identified insights to strengthen education, quality improvement, and future partner workflows.</p>
           </article>
         </div>
       </section>
@@ -357,9 +380,30 @@
                 <option>Phone call</option>
               </select>
             </div>
+            <div class="field">
+              <label for="care-context">Care Context</label>
+              <select id="care-context" name="careContext">
+                <option value="">Select one</option>
+                <option>Working with a physician or clinician</option>
+                <option>Working with a coach or wellness team</option>
+                <option>Exploring independently</option>
+                <option>Education or research program</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="lifestyle-focus">Lifestyle Focus</label>
+              <select id="lifestyle-focus" name="lifestyleFocus">
+                <option value="">Select one</option>
+                <option>Sleep and recovery</option>
+                <option>Stress and resilience</option>
+                <option>Movement and strength</option>
+                <option>Food pattern and consistency</option>
+                <option>Medication or supplement review</option>
+              </select>
+            </div>
             <div class="field full">
               <label for="notes">Notes (optional)</label>
-              <textarea id="notes" name="notes" placeholder="Anything you want our team to know before onboarding."></textarea>
+              <textarea id="notes" name="notes" placeholder="Symptoms, barriers, routines, goals, or anything you want our team to know before onboarding."></textarea>
             </div>
             <div class="field full">
               <label class="consent" for="consent">
@@ -387,7 +431,7 @@
         </div>
 
         <p class="micro-note">
-          This page intentionally avoids third-party account signup links and keeps the intake flow neutral and program-centric.
+          This page intentionally avoids third-party account signup links and keeps the intake flow neutral, program-centric, and reviewable by the appropriate human team.
         </p>
       </section>
 
@@ -435,6 +479,8 @@
       `Email: ${lead.email}`,
       `Goal: ${lead.goal}`,
       `Contact preference: ${lead.contact}`,
+      `Care context: ${lead.careContext || 'Not specified'}`,
+      `Lifestyle focus: ${lead.lifestyleFocus || 'Not specified'}`,
       `Notes: ${lead.notes || 'None'}`
     ].join('\n');
 
@@ -468,6 +514,8 @@
         email: String(formData.get('email') || '').trim(),
         goal: String(formData.get('goal') || '').trim(),
         contact: String(formData.get('contact') || '').trim(),
+        careContext: String(formData.get('careContext') || '').trim(),
+        lifestyleFocus: String(formData.get('lifestyleFocus') || '').trim(),
         notes: String(formData.get('notes') || '').trim(),
         consent: formData.get('consent') === 'on'
       };

@@ -43,6 +43,44 @@
     summaryText.textContent = text(report.summary, 'No summary was returned by the interpretation engine.');
   }
 
+  function formatContextLabel(key, value) {
+    const labels = {
+      activityLevel: 'Activity',
+      ageRange: 'Age',
+      clinicianQuestions: 'Clinician questions',
+      currentlySupplementing: 'Currently supplementing',
+      medications: 'Medications',
+      nutritionPattern: 'Nutrition pattern',
+      primaryConcern: 'Primary concern',
+      sleepRecovery: 'Sleep',
+      stressLoad: 'Stress'
+    };
+    return `${labels[key] || key}: ${value}`;
+  }
+
+  function renderWholePersonContext(report, context) {
+    const section = document.getElementById('context-section');
+    const contextText = document.getElementById('context-text');
+    const contextList = document.getElementById('context-list');
+    const safeContext = context && typeof context === 'object' ? context : {};
+    const contextSummary = text(report.wholePersonContext, '');
+    const entries = Object.entries(safeContext)
+      .filter(([key, value]) => key !== 'currentlySupplemening' && String(value || '').trim())
+      .map(([key, value]) => formatContextLabel(key, typeof value === 'boolean' ? (value ? 'yes' : 'no') : value));
+
+    contextList.textContent = '';
+    if (!contextSummary && !entries.length) {
+      section.hidden = true;
+      return;
+    }
+
+    section.hidden = false;
+    contextText.textContent = contextSummary || 'The interpretation was generated with the optional context available in this session. Review whether this context is complete and accurate with your clinician.';
+    entries.forEach((entry) => {
+      contextList.append(createElement('li', 'chip', entry));
+    });
+  }
+
   function deficiencySort(a, b) {
     const order = { deficient: 0, borderline: 1 };
     return (order[a.severity] ?? 2) - (order[b.severity] ?? 2);
@@ -140,8 +178,9 @@
     });
   }
 
-  function renderReport(report) {
+  function renderReport(report, context) {
     renderSummary(report);
+    renderWholePersonContext(report, context);
     renderDeficiencies(Array.isArray(report.deficiencies) ? report.deficiencies : []);
     renderPatterns(Array.isArray(report.patterns) ? report.patterns : []);
     renderAdequate(Array.isArray(report.adequateNutrients) ? report.adequateNutrients : []);
@@ -155,5 +194,5 @@
     return;
   }
 
-  renderReport(session.reportData);
+  renderReport(session.reportData, session.context);
 })(window, document);

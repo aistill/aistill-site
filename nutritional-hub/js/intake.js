@@ -117,9 +117,15 @@
   function getContext() {
     const supplementing = document.getElementById('supplementing').value;
     return {
+      activityLevel: sanitizeText(document.getElementById('activity-level').value),
       ageRange: sanitizeText(document.getElementById('age-range').value),
+      clinicianQuestions: sanitizeText(document.getElementById('clinician-questions').value),
+      currentlySupplementing: supplementingToBoolean(supplementing),
       medications: sanitizeText(document.getElementById('medications').value),
+      nutritionPattern: sanitizeText(document.getElementById('nutrition-pattern').value),
       primaryConcern: sanitizeText(document.getElementById('primary-concern').value),
+      sleepRecovery: sanitizeText(document.getElementById('sleep-recovery').value),
+      stressLoad: sanitizeText(document.getElementById('stress-load').value),
       currentlySupplemening: supplementingToBoolean(supplementing)
     };
   }
